@@ -35,8 +35,8 @@
         </aside>
       </div>
       <!-- KONTEN -->
-      <div class="column">
-        
+      <div class="column is-content">
+        <dashboard></dashboard>
       </div>
     </div>
 </div>    
@@ -44,7 +44,8 @@
 
 <script>
 import ExampleComponent from './components/ExampleComponent'
+import Dashboard from './components/Dashboard'
 export default {
-    components: { ExampleComponent }
+    components: { ExampleComponent, Dashboard }
 }
 </script>
