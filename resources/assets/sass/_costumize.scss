@@ -1,3 +1,40 @@
 .hero-body {
-    padding: 0.8rem 1.5rem;
+    padding: 0.4rem 1.5rem;
+}
+
+.hero.hero-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    .subtitle {
+        font-size: 1em
+    }
+}
+
+.title {
+    font-weight: normal
+}
+
+.column-menu {
+    padding-bottom: 0
+}
+
+.menu-list {
+    padding-top: 6em;
+    a {
+        border-radius: 0;
+        padding: .9em 0 .9em 3.25em;
+        .fa {
+            position: absolute;
+            font-size: 18px;
+            margin-left: -30px;
+        }
+    }
+}
+
+@media screen and (min-width: 769px), print {
+    .column.is-2, .column.is-2-tablet {
+        width: 250px;
+    }
 }
