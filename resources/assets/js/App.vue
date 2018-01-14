@@ -36,16 +36,14 @@
       </div>
       <!-- KONTEN -->
       <div class="column is-content">
-        <dashboard></dashboard>
+        <router-view></router-view>
       </div>
     </div>
 </div>    
 </template>
 
 <script>
-import ExampleComponent from './components/ExampleComponent'
-import Dashboard from './components/Dashboard'
 export default {
-    components: { ExampleComponent, Dashboard }
+    
 }
 </script>

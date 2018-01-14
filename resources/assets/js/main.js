@@ -6,7 +6,7 @@
  */
 
 import Vue from 'vue'
-
+import VueRouter from 'vue-router'
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -14,8 +14,12 @@ import Vue from 'vue'
  */
 
 import App from './App'
+import router from './router'
+
+Vue.use(VueRouter)
 
 const app = new Vue({
     el: '#app',
+    router,
     render: h => h(App)
 });
