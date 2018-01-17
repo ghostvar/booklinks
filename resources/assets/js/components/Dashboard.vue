@@ -1,6 +1,5 @@
 <template>
   <main class="column main">
-    <div>
         <div class="level">
           <div class="level-left">
             <div class="level-item">
@@ -94,7 +93,6 @@
               </div>
             </div>
           </div>
-        </div>
         </div>
         </main>
 </template>
