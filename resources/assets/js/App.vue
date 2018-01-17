@@ -23,7 +23,7 @@
               <a><i class="fa fa-users"></i>Pelanggan</a>
             </li>
             <li>
-              <a><i class="fa fa-train"></i>Kereta</a>
+              <router-link to="/kereta"><i class="fa fa-train"></i>Kereta</router-link>
             </li>
             <li>
               <a><i class="fa fa-plane"></i>Penerbangan</a>

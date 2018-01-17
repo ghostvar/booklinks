@@ -6,8 +6,8 @@
         color: $choco
     }
 }
-.hero.is-fullheight {
-    max-height: 100vh;
+.main.is-fullheight {
+    height: 100vh;
 }
 .hero.hero-header {
     position: absolute;
@@ -18,6 +18,10 @@
     .subtitle {
         font-size: 1em
     }
+}
+
+.table.is-small {
+    font-size: 14px;
 }
 
 .title {
