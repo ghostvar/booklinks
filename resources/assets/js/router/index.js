@@ -5,14 +5,18 @@ function load(path) {
 }
 
 export default new Router({
-    mode: "hash",
+    mode: 'hash',
     routes: [
         {
             path: '/dashboard',
             component: load('Dashboard')
         },
+        {
+            path: '/pemesanan',
+            component: load('Pemesanan')
+        },
         // Redirection
         { path: '*', redirect: '/dashboard' },
         { path: '/', redirect: '/dashboard' }
     ]
-})
+});

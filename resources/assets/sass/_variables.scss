@@ -1,9 +1,14 @@
 $fa-font-path: "~font-awesome/fonts";
 
 $mint: #1b555a;
+$choco: #3c3c3c;
+$azure: #83c5f1;
+$kuning: #83f192;
 
-$primary: $cyan;
+$primary: $azure;
 $info: $mint;
+
+$table-row-active-background-color: $kuning;
 
 $menu-item-hover-background-color: rgba(#000, 0.5);
 $menu-item-active-background-color: rgba(#000, 0.5);

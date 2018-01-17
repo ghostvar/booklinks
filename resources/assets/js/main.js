@@ -15,8 +15,10 @@ import VueRouter from 'vue-router'
 
 import App from './App'
 import router from './router'
+import Plugins from './plugins'
 
 Vue.use(VueRouter)
+Vue.use(Plugins)
 
 const app = new Vue({
     el: '#app',

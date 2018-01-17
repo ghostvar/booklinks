@@ -1,10 +1,10 @@
 <template>
 <div>
-    <section class="hero is-primary hero-header">
+    <section class="hero navbar is-primary has-shadow hero-header">
         <div class="hero-body">
             <div class="container-fluid">
-                <h1 class="title">Primary title</h1>
-                <h2 class="subtitle">Primary subtitle</h2>
+                <h1 class="title">BookingLinks</h1>
+                <h2 class="subtitle">Aplikasi Ticketing Pesawat dan Kereta</h2>
             </div>
         </div>
     </section>
@@ -14,22 +14,19 @@
         <aside class="menu hero is-fullheight is-info">
           <ul class="menu-list">
             <li>
-              <a><i class="fa fa-file-text-o"></i>Formulir</a>
+              <router-link to="/dashboard"><i class="fa fa-bar-chart"></i>Dashboard</router-link>
             </li>
             <li>
-              <a><i class="fa fa-building-o"></i>Pesantren</a>
+              <router-link to="/pemesanan"><i class="fa fa-suitcase"></i>Pemesanan</router-link>
             </li>
             <li>
-              <a><i class="fa fa-university"></i>Lembaga</a>
+              <a><i class="fa fa-users"></i>Pelanggan</a>
             </li>
             <li>
-              <a><i class="fa fa-level-up"></i>Alumni</a>
+              <a><i class="fa fa-train"></i>Kereta</a>
             </li>
             <li>
-              <a><i class="fa fa-cogs"></i>Pengaturan</a>
-            </li>
-            <li>
-              <a class="is-active"><i class="fa fa-bar-chart"></i>Statistik</a>
+              <a><i class="fa fa-plane"></i>Penerbangan</a>
             </li>
           </ul>
         </aside>

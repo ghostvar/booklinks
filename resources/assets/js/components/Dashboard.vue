@@ -1,8 +1,9 @@
 <template>
   <main class="column main">
+    <div>
         <nav class="breadcrumb is-small" aria-label="breadcrumbs">
           <ul>
-            <li><a href="#">Home</a></li>
+            <li><router-link to="/">Home</router-link></li>
             <li class="is-active"><a href="#" aria-current="page">Dashboard</a></li>
           </ul>
         </nav>
@@ -10,14 +11,12 @@
         <div class="level">
           <div class="level-left">
             <div class="level-item">
-              <div class="title has-text-success">Statistik</div>
+              <div class="title has-text-success">Dashboard</div>
             </div>
           </div>
           <div class="level-right">
             <div class="level-item">
-              <button type="button" class="button is-small">
-                November 8, 2017 - January 6, 2018
-              </button>
+              <button type="button" class="button is-small" v-text="date"></button>
             </div>
           </div>
         </div>
@@ -102,6 +101,7 @@
               </div>
             </div>
           </div>
+        </div>
         </div>
         </main>
 </template>

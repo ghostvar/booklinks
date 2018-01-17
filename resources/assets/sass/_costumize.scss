@@ -1,12 +1,20 @@
 .hero-body {
     padding: 0.4rem 1.5rem;
 }
-
+.hero.is-primary {
+    .title, .subtitle {
+        color: $choco
+    }
+}
+.hero.is-fullheight {
+    max-height: 100vh;
+}
 .hero.hero-header {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
+    z-index: 1;
     .subtitle {
         font-size: 1em
     }
@@ -34,7 +42,9 @@
     }
 }
 .column.main {
-    padding-top: 6em
+    padding-top: 6em;
+    padding-right: 1.5em;
+    overflow: auto
 }
 .column.is-content {
     padding-top: 0;
@@ -46,3 +56,13 @@
         width: 250px;
     }
 }
+
+.breadcrumb:not(:last-child) {
+    margin-bottom: .5rem;
+}
+
+.level:not(:last-child) {
+    margin-bottom: .8rem;
+}
+
+.router-link-active { @extend .is-active; }
