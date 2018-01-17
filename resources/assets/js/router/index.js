@@ -19,6 +19,10 @@ export default new Router({
             path: '/kereta',
             component: load('Kereta')
         },
+        {
+            path: '/pelanggan',
+            component: load('Pelanggan')
+        },
         // Redirection
         { path: '*', redirect: '/dashboard' },
         { path: '/', redirect: '/dashboard' }

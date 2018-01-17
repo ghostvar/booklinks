@@ -20,7 +20,7 @@
               <router-link to="/pemesanan"><i class="fa fa-suitcase"></i>Pemesanan</router-link>
             </li>
             <li>
-              <a><i class="fa fa-users"></i>Pelanggan</a>
+              <router-link to="/pelanggan"><i class="fa fa-users"></i>Pelanggan</router-link>
             </li>
             <li>
               <router-link to="/kereta"><i class="fa fa-train"></i>Kereta</router-link>
