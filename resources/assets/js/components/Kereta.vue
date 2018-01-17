@@ -21,7 +21,7 @@
           </div>
         </div>
         <section>
-          <div class="tabs is-boxed is-small">
+          <div class="tabs is-small">
             <ul>
               <li class="is-active"><a>Jadwal</a></li>
               <li><a>Kereta</a></li>

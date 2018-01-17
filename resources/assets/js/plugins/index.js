@@ -1,34 +1,46 @@
 import dateFormat from './dateformat'
+import data from './data.json'
 export default {
     install(Vue, options) {
         Vue.mixin({
             data() {
                 return {
                     date: '',
-                    pemesanan: [
-                        { name: 'Rian', jenis: 'Penerbangan', tanggal: '7 Mei 2018' },
-                        { name: 'Fadli', jenis: 'Kereta', tanggal: '14 April 2018' },
-                        { name: 'Ahmad', jenis: 'Kereta', tanggal: '02 Februari 2018' }
-                    ],
-                    selectedPesanan: ''
+                    pemesanan: {
+                        data: '',
+                        selected: ''
+                    },
+                    pelanggan: {
+                        data: '',
+                        selected: ''
+                    }
                 }
             },
             methods: {
                 run() {
                     console.log('works!');
                 },
+                init() {
+                    this.getTime();
+                    setInterval(() => {
+                        this.getTime();
+                    }, 1000)
+
+                    this.pemesanan.data = data.pemesanan
+                    this.pelanggan.data = data.pelanggan
+                },
                 getTime() {
                     this.date = dateFormat(new Date(), "dddd, dd mmmm yyyy, HH:MM:ss");
                 },
                 selectPesanan(pesanan) {
-                    this.selectedPesanan = pesanan
+                    this.pemesanan.selected = pesanan
+                },
+                selectPelanggan(pelanggan) {
+                    this.pelanggan.selected = pelanggan
                 }
             },
             mounted() {
-                this.getTime();
-                setInterval(() => {
-                    this.getTime();
-                }, 1000)
+                this.init();
             }
         });
     }

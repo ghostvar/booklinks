@@ -31,8 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr
-                      v-for="(pesan, id) in pemesanan" :key="id" @click="selectPesanan(pesan)" :class="{ 'is-selected': (selectedPesanan == pesan ? true: false) }">
+                    <tr v-for="(pesan, id) in pemesanan.data" :key="id" @click="selectPesanan(pesan)" :class="{ 'is-selected': (pemesanan.selected == pesan ? true: false) }">
                         <td v-text="id+1"></td>
                         <td v-text="pesan.name"></td>
                         <td v-text="pesan.jenis"></td>

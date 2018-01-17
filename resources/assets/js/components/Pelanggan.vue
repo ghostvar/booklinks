@@ -27,16 +27,17 @@
                         <th>No</th>
                         <th>Nama</th>
                         <th>Alamat</th>
-                        <th>Tanggal</th>
+                        <th>Created at</th>
+						<th>Updated at</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr
-                      v-for="(pesan, id) in pemesanan" :key="id" @click="selectPesanan(pesan)" :class="{ 'is-selected': (selectedPesanan == pesan ? true: false) }">
+                    <tr v-for="(user, id) in pelanggan.data" :key="id" @click="selectPelanggan(user)" :class="{ 'is-selected': (pelanggan.selected == user ? true:false) }">
                         <td v-text="id+1"></td>
-                        <td v-text="pesan.name"></td>
-                        <td v-text="pesan.jenis"></td>
-                        <td v-text="pesan.tanggal"></td>
+                        <td v-text="user.name"></td>
+                        <td v-text="user.kota"></td>
+                        <td v-text="user.created_at"></td>
+						<td v-text="user.updated_at"></td>
                     </tr>
                 </tbody>
             </table>

@@ -1,0 +1,18 @@
+{
+    "pemesanan": [
+        { "name": "Rian", "booking_code": "ASM10293", "jenis": "Penerbangan", "created_at": "7 Mei 2018", "updated_at": "8 April 2017", "status": "", "status_pembayaran": "" },
+        { "name": "Fadli", "booking_code": "AAM102293", "jenis": "Kereta", "created_at": "14 April 2018", "updated_at": "2 Juni 2017", "status": "", "status_pembayaran": "" },
+        { "name": "Ahmad", "booking_code": "ASM10232", "jenis": "Kereta", "created_at": "02 Februari 2018", "updated_at": "28 November 2017", "status": "", "status_pembayaran": "" }
+    ],
+    "pelanggan": [
+        { "name": "Rian", "email": "rian@yahoo.co.id", "kota": "Surabaya", "negara": "Indonesia", "created_at": "10 Agustus 2017", "updated_at": "12 Mei 2017" },
+        { "name": "Fadli", "email": "fadli@example.id", "kota": "Semarang", "negara": "Indonesia", "created_at": "10 Agustus 2017", "updated_at": "12 Mei 2017" },
+        { "name": "Ahmad", "email": "ahmad@yahoo.co.id", "kota": "Bandung", "negara": "Indonesia", "created_at": "10 Agustus 2017", "updated_at": "12 Mei 2017" }
+    ],
+    "stasiun_kereta": [
+        { "kode_stasiun": "BD", "kota": "Bandung", "nama_stasiun": "Stasiun Hall" },
+        { "kode_stasiun": "BW", "kota": "Banyuangi", "nama_stasiun": "Stasiun Banyuangi Baru" },
+        { "kode_stasiun": "BOO", "kota": "Bogor", "nama_stasiun": "Stasiun Bogor" },
+        { "kode_stasiun": "CJ", "kota": "Cianjur", "nama_stasiun": "Stasiun Cianjur" }
+    ]
+}
