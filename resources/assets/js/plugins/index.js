@@ -50,6 +50,9 @@ export default {
                 selectPesanan(pesanan) {
                     this.pemesanan.selected = pesanan
                 },
+                actionPesanan(pesan) {
+                    console.log(pesan)
+                },
                 selectPelanggan(pelanggan) {
                     this.pelanggan.selected = pelanggan
                 },

@@ -20,6 +20,9 @@
     }
 }
 
+.table {
+    user-select: none;
+}
 .table.is-small {
     font-size: 14px;
 }
