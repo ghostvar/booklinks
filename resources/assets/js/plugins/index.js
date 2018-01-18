@@ -21,6 +21,10 @@ export default {
                     kereta: {
                         data: [],
                         selected: ''
+                    },
+                    jadwalKereta: {
+                        data: [],
+                        selected: ''
                     }
                 }
             },
@@ -38,6 +42,7 @@ export default {
                     this.pelanggan.data = data.pelanggan
                     this.stasiun.data = data.stasiun
                     this.kereta.data = data.kereta
+                    this.jadwalKereta.data = data.jadwalKereta
                 },
                 getTime() {
                     this.date = dateFormat(new Date(), "dddd, dd mmmm yyyy, HH:MM:ss");
@@ -53,6 +58,9 @@ export default {
                 },
                 selectKereta(kereta) {
                     this.kereta.selected = kereta
+                },
+                selectJadwalKereta(jadwal) {
+                    this.jadwalKereta.selected = jadwal
                 }
             },
             mounted() {

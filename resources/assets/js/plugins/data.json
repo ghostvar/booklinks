@@ -23,7 +23,7 @@
         { "name": "Fajar Utama Yogya", "created_at": "17 Oktober 2017", "updated_at": "17 Oktober 2017" },
         { "name": "Gumarang", "created_at": "17 Oktober 2017", "updated_at": "17 Oktober 2017" }
     ],
-    "jadwal": [
-        { "nama_kereta": "Argo Bromo Anggrek", "stasiun_keberangkatan": "Surabaya Pasarturi (SBI)"}
+    "jadwalKereta": [
+        { "nama_kereta": "Argo Bromo Anggrek", "stasiun_berangkat": "Surabaya Pasarturi (SBI)", "stasiun_datang": "Gambir (GMR)", "waktu_berangkat": "08.00", "waktu_datang": "17.00", "waktu_tempuh": "09" }
     ]
 }
