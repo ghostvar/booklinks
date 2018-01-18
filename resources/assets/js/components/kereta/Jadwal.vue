@@ -15,10 +15,10 @@
         <tr>
           <th>No</th>
           <th>Nama Kereta</th>
-          <th>Stasiun Keberangkatan</th>
-          <th>Stasiun Kedatangan</th>
           <th>Waktu Keberangkatan</th>
+          <th>Stasiun Keberangkatan</th>
           <th>Waktu Kedatangan</th>
+          <th>Stasiun Kedatangan</th>
           <th>Waktu Tempuh</th>
         </tr>
       </thead>
@@ -26,11 +26,11 @@
         <tr v-for="(jadwal, id) in jadwalKereta.data" :key="id" @click="selectJadwalKereta(jadwal)" :class="{ 'is-selected': (jadwalKereta.selected == jadwal ? true:false) }">
           <td v-text="id+1"></td>
           <td v-text="jadwal.nama_kereta"></td>
+          <td v-text="jadwal.waktu_berangkat"></td>
           <td v-text="jadwal.stasiun_berangkat"></td>
-          <td v-text="jadwal.stasiun_datang"></td>
-	  			<td v-text="jadwal.waktu_berangkat"></td>
           <td v-text="jadwal.waktu_datang"></td>
-          <td v-text="jadwal.waktu_tempuh"></td>
+          <td v-text="jadwal.stasiun_datang"></td>
+          <td v-text="jadwal.waktu_tempuh + ' Jam'"></td>
         </tr>
       </tbody>
     </table>

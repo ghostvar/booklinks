@@ -24,6 +24,17 @@
         { "name": "Gumarang", "created_at": "17 Oktober 2017", "updated_at": "17 Oktober 2017" }
     ],
     "jadwalKereta": [
-        { "nama_kereta": "Argo Bromo Anggrek", "stasiun_berangkat": "Surabaya Pasarturi (SBI)", "stasiun_datang": "Gambir (GMR)", "waktu_berangkat": "08.00", "waktu_datang": "17.00", "waktu_tempuh": "09" }
+        { "nama_kereta": "Argo Bromo Anggrek Pagi", "stasiun_berangkat": "Surabaya Pasarturi (SBI)", "stasiun_datang": "Gambir (GMR)", "waktu_berangkat": "08.00", "waktu_datang": "17.00", "waktu_tempuh": "09" },
+        { "nama_kereta": "Argo Bromo Anggrek Pagi", "stasiun_berangkat": "Gambir (GMR)", "stasiun_datang": "Surabaya Pasarturi (SBI)", "waktu_berangkat": "09.30", "waktu_datang": "18.30", "waktu_tempuh": "09" },
+        { "nama_kereta": "Argo Bromo Anggrek Malam", "stasiun_berangkat": "Surabaya Pasarturi (SBI)", "stasiun_datang": "Gambir (GMR)", "waktu_berangkat": "20.00", "waktu_datang": "04.57", "waktu_tempuh": "08" },
+        { "nama_kereta": "Argo Bromo Anggrek Malam", "stasiun_berangkat": "Gambir (GMR)", "stasiun_datang": "Surabaya Pasarturi (SBI)", "waktu_berangkat": "21.30", "waktu_datang": "06.30", "waktu_tempuh": "09" },
+        { "nama_kereta": "Argo Wilis", "stasiun_berangkat": "Surabaya Gubeng (SGU)", "stasiun_datang": "Bandung (BD)", "waktu_berangkat": "07.00", "waktu_datang": "19.06", "waktu_tempuh": "12" },
+        { "nama_kereta": "Argo Wilis", "stasiun_berangkat": "Bandung (BD)", "stasiun_datang": "Surabaya Gubeng (SGU)", "waktu_berangkat": "08.30", "waktu_datang": "20.19", "waktu_tempuh": "11" },
+        { "nama_kereta": "Argo Lawu", "stasiun_berangkat": "Solo Balapan (SLO)", "stasiun_datang": "Gambir (GMR)", "waktu_berangkat": "08.00", "waktu_datang": "16.22", "waktu_tempuh": "08" },
+        { "nama_kereta": "Argo Lawu", "stasiun_berangkat": "Gambir (GMR)", "stasiun_datang": "Solo Balapan (SLO)", "waktu_berangkat": "20.15", "waktu_datang": "04.45", "waktu_tempuh": "08" },
+        { "nama_kereta": "Argo Dwipangga", "stasiun_berangkat": "Solo Balapan (SLO)", "stasiun_datang": "Gambir (GMR)", "waktu_berangkat": "20.00", "waktu_datang": "04.28", "waktu_tempuh": "08" },
+        { "nama_kereta": "Argo Dwipangga", "stasiun_berangkat": "Gambir (GMR)", "stasiun_datang": "Solo Balapan (SLO)", "waktu_berangkat": "08.00", "waktu_datang": "16.35", "waktu_tempuh": "08" },
+        { "nama_kereta": "Argo Sindoro", "stasiun_berangkat": "Semarang Tawang (SMT)", "stasiun_datang": "Gambir (GMR)", "waktu_berangkat": "06.00", "waktu_datang": "11.59", "waktu_tempuh": "05" },
+        { "nama_kereta": "Argo Sindoro", "stasiun_berangkat": "Gambir (GMR)", "stasiun_datang": "Semarang Tawang (SMT)", "waktu_berangkat": "16.15", "waktu_datang": "22.15", "waktu_tempuh": "06" }
     ]
 }
