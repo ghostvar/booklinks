@@ -21,8 +21,6 @@
       </ul>
       </div>
     </section>
-    <section>
-      <router-view></router-view>
-    </section>
+    <router-view></router-view>
   </main>
 </template>

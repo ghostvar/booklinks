@@ -13,6 +13,18 @@
       </div>
     </div>
     <section>
+      <div class="control">
+        <span v-if="!pemesanan.selected">
+          <button class="button is-success">Tambah</button>
+        </span>
+        <span v-if="pemesanan.selected">
+          <button class="button is-primary" @click="pemesanan.selected = ''">Batal</button>
+          <button class="button is-success">Ubah</button>
+          <button class="button is-danger">Hapus</button>
+        </span>
+      </div>
+    </section>
+    <section>
       <table class="table is-fullwidth is-hoverable is-small">
         <thead>
           <tr>
