@@ -6,6 +6,7 @@ export default {
             data() {
                 return {
                     date: '',
+                    modal: false,
                     pemesanan: {
                         data: [],
                         selected: ''

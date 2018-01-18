@@ -1,5 +1,66 @@
 <template>
   <main class="column main is-fullheight">
+    <div class="modal" :class="{ 'is-active': modal }">
+      <div @click="modal = !modal" class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="text" placeholder="Username Anda">
+              <span class="icon is-small is-left">
+                <i class="fa fa-user"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="email" placeholder="Email Anda">
+              <span class="icon is-small is-left">
+                <i class="fa fa-envelope"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Kota</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Kota Asal">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Negara</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Negara Asal">
+            </div>
+          </div>
+
+          <!--div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox">
+                I agree to the <a href="#">terms and conditions</a>
+              </label>
+            </div>
+          </div-->
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-success">Submit</button>
+            </div>
+            <div class="control">
+              <button @click="modal = !modal" class="button is-text">Cancel</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button @click="modal = !modal" class="modal-close is-large" aria-label="close"></button>
+    </div>
     <div class="level">
       <div class="level-left">
       <div class="level-item">
@@ -15,7 +76,7 @@
     <section>
       <div class="control">
         <span v-if="!pelanggan.selected">
-          <button class="button is-success">Tambah</button>
+          <button @click="modal = !modal" class="button is-success">Tambah</button>
         </span>
         <span v-if="pelanggan.selected">
           <button class="button is-primary" @click="pelanggan.selected = ''">Batal</button>
