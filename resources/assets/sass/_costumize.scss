@@ -64,14 +64,6 @@
     }
 }
 
-.breadcrumb:not(:last-child) {
-    margin-bottom: .5rem;
-}
-
-.level:not(:last-child) {
-    margin-bottom: .8rem;
-}
-
 .router-link-active { @extend .is-active; }
 .tabs.is-boxed li a.router-link-active {
     background-color: white;
