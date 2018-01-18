@@ -1,7 +1,7 @@
 import Router from 'vue-router'
 
 function load(path) {
-    return require(`../components/${path}`);
+    return require(`../components/${path.replace('.', '/')}`);
 }
 
 export default new Router({
@@ -17,7 +17,22 @@ export default new Router({
         },
         {
             path: '/kereta',
-            component: load('Kereta')
+            component: load('kereta.Main'),
+            children: [
+                { path: '', redirect: 'jadwal' },
+                {
+                    path: 'jadwal',
+                    component: load('kereta.Jadwal')
+                },
+                {
+                    path: 'kereta',
+                    component: load('kereta.List')
+                },
+                {
+                    path: 'stasiun',
+                    component: load('kereta.Stasiun')
+                }
+            ]
         },
         {
             path: '/pelanggan',

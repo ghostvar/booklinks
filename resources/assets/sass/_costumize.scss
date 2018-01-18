@@ -70,3 +70,8 @@
 }
 
 .router-link-active { @extend .is-active; }
+.tabs.is-boxed li a.router-link-active {
+    background-color: white;
+    border-color: #dbdbdb;
+    border-bottom-color: transparent !important;
+}

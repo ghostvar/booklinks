@@ -13,13 +13,16 @@
       </div>
     </div>
     <section>
-      <div class="tabs is-small">
+      <div class="tabs is-boxed">
       <ul>
-        <li class="is-active"><a>Jadwal</a></li>
-        <li><a>Kereta</a></li>
-        <li><a>Stasiun</a></li>
+        <li><router-link to="/kereta/jadwal">Jadwal</router-link></li>
+        <li><router-link to="/kereta/kereta">Kereta</router-link></li>
+        <li><router-link to="/kereta/stasiun">Stasiun</router-link></li>
       </ul>
       </div>
+    </section>
+    <section>
+      <router-view></router-view>
     </section>
   </main>
 </template>

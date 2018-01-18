@@ -7,11 +7,19 @@ export default {
                 return {
                     date: '',
                     pemesanan: {
-                        data: '',
+                        data: [],
                         selected: ''
                     },
                     pelanggan: {
-                        data: '',
+                        data: [],
+                        selected: ''
+                    },
+                    stasiun: {
+                        data: [],
+                        selected: ''
+                    },
+                    kereta: {
+                        data: [],
                         selected: ''
                     }
                 }
@@ -28,6 +36,8 @@ export default {
 
                     this.pemesanan.data = data.pemesanan
                     this.pelanggan.data = data.pelanggan
+                    this.stasiun.data = data.stasiun
+                    this.kereta.data = data.kereta
                 },
                 getTime() {
                     this.date = dateFormat(new Date(), "dddd, dd mmmm yyyy, HH:MM:ss");
@@ -37,6 +47,12 @@ export default {
                 },
                 selectPelanggan(pelanggan) {
                     this.pelanggan.selected = pelanggan
+                },
+                selectStasiun(stasiun) {
+                    this.stasiun.selected = stasiun
+                },
+                selectKereta(kereta) {
+                    this.kereta.selected = kereta
                 }
             },
             mounted() {

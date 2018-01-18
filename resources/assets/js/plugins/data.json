@@ -9,10 +9,21 @@
         { "name": "Fadli", "email": "fadli@example.id", "kota": "Semarang", "negara": "Indonesia", "created_at": "10 Agustus 2017", "updated_at": "12 Mei 2017" },
         { "name": "Ahmad", "email": "ahmad@yahoo.co.id", "kota": "Bandung", "negara": "Indonesia", "created_at": "10 Agustus 2017", "updated_at": "12 Mei 2017" }
     ],
-    "stasiun_kereta": [
-        { "kode_stasiun": "BD", "kota": "Bandung", "nama_stasiun": "Stasiun Hall" },
-        { "kode_stasiun": "BW", "kota": "Banyuangi", "nama_stasiun": "Stasiun Banyuangi Baru" },
-        { "kode_stasiun": "BOO", "kota": "Bogor", "nama_stasiun": "Stasiun Bogor" },
-        { "kode_stasiun": "CJ", "kota": "Cianjur", "nama_stasiun": "Stasiun Cianjur" }
+    "stasiun": [
+        { "kode": "BD", "kota": "Bandung", "name": "Stasiun Hall" },
+        { "kode": "BW", "kota": "Banyuangi", "name": "Stasiun Banyuangi Baru" },
+        { "kode": "BOO", "kota": "Bogor", "name": "Stasiun Bogor" },
+        { "kode": "CJ", "kota": "Cianjur", "name": "Stasiun Cianjur" }
+    ],
+    "kereta": [
+        { "name": "Argo Bromo Anggrek", "created_at": "17 Oktober 2017", "updated_at": "17 Oktober 2017" },
+        { "name": "Argo Dwipangga", "created_at": "17 Oktober 2017", "updated_at": "25 November 2017" },
+        { "name": "Argo Jati", "created_at": "18 Oktober 2017", "updated_at": "17 Oktober 2017" },
+        { "name": "Ciremai Ekspres", "created_at": "17 Oktober 2017", "updated_at": "17 Oktober 2017" },
+        { "name": "Fajar Utama Yogya", "created_at": "17 Oktober 2017", "updated_at": "17 Oktober 2017" },
+        { "name": "Gumarang", "created_at": "17 Oktober 2017", "updated_at": "17 Oktober 2017" }
+    ],
+    "jadwal": [
+        { "nama_kereta": "Argo Bromo Anggrek", "stasiun_keberangkatan": "Surabaya Pasarturi (SBI)"}
     ]
 }
