@@ -30,16 +30,24 @@
           <tr>
             <th>No</th>
             <th>Nama</th>
+            <th>Kode Booking</th>
             <th>Jenis Tiket</th>
-            <th>Tanggal</th>
+            <th>Creted</th>
+            <th>Updated</th>
+            <th>Status</th>
+            <th>Status Pembayaran</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(pesan, id) in pemesanan.data" :key="id" @click="selectPesanan(pesan)" :class="{ 'is-selected': (pemesanan.selected == pesan ? true: false) }">
             <td v-text="id+1"></td>
             <td v-text="pesan.name"></td>
+            <td v-text="pesan.booking_code"></td>
             <td v-text="pesan.jenis"></td>
-            <td v-text="pesan.tanggal"></td>
+            <td v-text="pesan.created_at"></td>
+            <td v-text="pesan.updated_at"></td>
+            <td v-text="(pesan.status ? pesan.status: 'N/A')"></td>
+            <td v-text="(pesan.payment_status ? pesan.payment_status: 'N/A')"></td>
           </tr>
         </tbody>
       </table>
