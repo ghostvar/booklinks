@@ -38,8 +38,36 @@ export default {
                 actionPesanan(pesan) {
                     console.log(pesan)
                 },
+                initPelanggan() {
+                    this.used = {
+                        id: '',
+                        name: '',
+                        email: '',
+                        kota: '',
+                        negara: ''
+                    }
+                },
                 selectPelanggan(pelanggan) {
-                    this.used = pelanggan
+                    this.used = {
+                        id: pelanggan.id,
+                        name: pelanggan.name,
+                        email: pelanggan.email,
+                        kota: pelanggan.kota,
+                        negara: pelanggan.negara
+                    }
+                },
+                actionPelanggan() {
+                    model.actionCostumer(this.used, () => {
+                        this.init()
+                        this.initPelanggan()
+                        this.modal = !this.modal
+                    })
+                },
+                deletePelanggan() {
+                    model.deleteCostumer(this.used.id, () => {
+                        this.init()
+                        this.initPelanggan()
+                    })
                 },
                 selectStasiun(stasiun) {
                     this.used = stasiun

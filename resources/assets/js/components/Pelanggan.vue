@@ -8,7 +8,7 @@
           <div class="field">
             <label class="label">Username</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" type="text" placeholder="Username Anda">
+              <input v-model="used.name" class="input" type="text" placeholder="Username Anda">
               <span class="icon is-small is-left">
                 <i class="fa fa-user"></i>
               </span>
@@ -18,7 +18,7 @@
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email Anda">
+              <input v-model="used.email" class="input" type="email" placeholder="Email Anda">
               <span class="icon is-small is-left">
                 <i class="fa fa-envelope"></i>
               </span>
@@ -28,14 +28,14 @@
           <div class="field">
             <label class="label">Kota</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Kota Asal">
+              <input v-model="used.kota" class="input" type="text" placeholder="Kota Asal">
             </div>
           </div>
 
           <div class="field">
             <label class="label">Negara</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Negara Asal">
+              <input v-model="used.negara" class="input" type="text" placeholder="Negara Asal">
             </div>
           </div>
 
@@ -50,7 +50,7 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-success">Submit</button>
+              <button @click="actionPelanggan" class="button is-success">Simpan</button>
             </div>
             <div class="control">
               <button @click="modal = !modal" class="button is-text">Cancel</button>
@@ -75,13 +75,13 @@
     </div>
     <section>
       <div class="control">
-        <span v-if="!used">
+        <span v-if="!used.id">
           <button @click="modal = !modal" class="button is-success">Tambah</button>
         </span>
-        <span v-if="used">
-          <button class="button is-primary" @click="used = ''">Batal</button>
-          <button class="button is-success">Ubah</button>
-          <button class="button is-danger">Hapus</button>
+        <span v-if="used.id">
+          <button class="button is-primary" @click="initPelanggan">Batal</button>
+          <button class="button is-success" @click="modal = !modal">Ubah</button>
+          <button class="button is-danger" @click="deletePelanggan">Hapus</button>
         </span>
       </div>
     </section>
@@ -97,7 +97,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(user, id) in $store.state.pelanggan" :key="id" @click="selectPelanggan(user)" :class="{ 'is-selected': (used == user ? true:false) }">
+          <tr v-for="(user, id) in $store.state.pelanggan" :key="id" @click="selectPelanggan(user)" :class="{ 'is-selected': (used.id == user.id ? true:false) }">
             <td v-text="id+1"></td>
             <td v-text="user.name"></td>
             <td v-text="user.kota"></td>
@@ -109,3 +109,11 @@
     </section>
   </main>
 </template>
+
+<script>
+export default {
+  mounted() {
+    this.initPelanggan()
+  }
+}
+</script>

@@ -17,7 +17,18 @@ export default {
         })
         .catch(err => { error(err) })
     },
-    deleteCostumers: function (id, callback) {
+    actionCostumer: function (data, callback) {
+        axios({
+            method: (data.id ? 'put':'post'),
+            url: '/api/pelanggan',
+            data
+        })
+        .then(response => {
+            callback(response.data)
+        })
+        .catch(err => { error(err) })
+    },
+    deleteCostumer: function (id, callback) {
         axios.delete('/api/pelanggan/' + id)
         .then(response => {
             callback(response)
