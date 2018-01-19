@@ -1,4 +1,4 @@
-import axios from './axios'
+import axios from '../services/axios'
 
 function error (err) {
     if (err.response.status == 401) {
