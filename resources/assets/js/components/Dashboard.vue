@@ -8,7 +8,7 @@
           </div>
           <div class="level-right">
             <div class="level-item">
-              <button type="button" class="button is-small" v-text="date"></button>
+              <button type="button" class="button is-small" v-text="$store.state.date"></button>
             </div>
           </div>
         </div>

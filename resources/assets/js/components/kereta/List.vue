@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="control is-nested">
-      <span v-if="!kereta.selected">
+      <span v-if="!used">
         <button class="button is-success">Tambah</button>
       </span>
-      <span v-if="kereta.selected">
-        <button class="button is-primary" @click="kereta.selected = ''">Batal</button>
+      <span v-if="used">
+        <button class="button is-primary" @click="used = ''">Batal</button>
         <button class="button is-success">Ubah</button>
         <button class="button is-danger">Hapus</button>
       </span>
@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(keret, id) in kereta.data" :key="id" @click="selectKereta(keret)" :class="{ 'is-selected': (kereta.selected == keret ? true:false) }">
+        <tr v-for="(keret, id) in $store.state.kereta" :key="id" @click="selectKereta(keret)" :class="{ 'is-selected': (used == keret ? true:false) }">
           <td v-text="id+1"></td>
           <td v-text="keret.name"></td>
           <td v-text="keret.created_at"></td>

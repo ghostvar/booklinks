@@ -1,8 +1,11 @@
 import Router from 'vue-router'
+import Vue from 'vue'
 
 function load(path) {
     return require(`../components/${path.replace('.', '/')}`);
 }
+
+Vue.use(Router)
 
 export default new Router({
     mode: 'hash',

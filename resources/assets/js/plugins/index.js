@@ -1,6 +1,7 @@
 import dateFormat from './dateformat'
 import data from './data.json'
 import model from './model'
+
 export default {
     install(Vue, options) {
         Vue.mixin({
@@ -8,26 +9,7 @@ export default {
                 return {
                     date: '',
                     modal: false,
-                    pemesanan: {
-                        data: [],
-                        selected: ''
-                    },
-                    pelanggan: {
-                        data: [],
-                        selected: ''
-                    },
-                    stasiun: {
-                        data: [],
-                        selected: ''
-                    },
-                    kereta: {
-                        data: [],
-                        selected: ''
-                    },
-                    jadwalKereta: {
-                        data: [],
-                        selected: ''
-                    }
+                    used: ''
                 }
             },
             methods: {
@@ -35,37 +17,38 @@ export default {
                     console.log('works!');
                 },
                 init() {
+                    console.info('Data Initialize!')
                     this.getTime();
                     setInterval(() => {
                         this.getTime();
                     }, 1000)
 
-                    this.pemesanan.data = data.pemesanan
-                    model.pelanggan(data => { this.pelanggan.data = data })
-                    this.stasiun.data = data.stasiun
-                    this.kereta.data = data.kereta
-                    this.jadwalKereta.data = data.jadwalKereta
+                    this.$store.commit('setPemesanan', data.pemesanan);
+                    model.getCostumers(data => { this.$store.commit('setPelanggan', data) })
+                    this.$store.commit('setStasiun', data.stasiun);
+                    this.$store.commit('setKereta', data.kereta);
+                    this.$store.commit('setJadwalKereta', data.jadwalKereta);
                 },
                 getTime() {
-                    this.date = dateFormat(new Date(), "dddd, dd mmmm yyyy, HH:MM:ss");
+                    this.$store.commit('setDate', dateFormat(new Date(), "dddd, dd mmmm yyyy, HH:MM:ss"));
                 },
                 selectPesanan(pesanan) {
-                    this.pemesanan.selected = pesanan
+                    this.used = pesanan
                 },
                 actionPesanan(pesan) {
                     console.log(pesan)
                 },
                 selectPelanggan(pelanggan) {
-                    this.pelanggan.selected = pelanggan
+                    this.used = pelanggan
                 },
                 selectStasiun(stasiun) {
-                    this.stasiun.selected = stasiun
+                    this.used = stasiun
                 },
                 selectKereta(kereta) {
-                    this.kereta.selected = kereta
+                    this.used = kereta
                 },
                 selectJadwalKereta(jadwal) {
-                    this.jadwalKereta.selected = jadwal
+                    this.used = jadwal
                 }
             },
             beforeCreate() {
@@ -74,7 +57,7 @@ export default {
                 }
             },
             mounted() {
-                this.init();
+                
             }
         });
     }

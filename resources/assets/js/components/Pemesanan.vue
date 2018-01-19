@@ -8,17 +8,17 @@
       </div>
       <div class="level-right">
       <div class="level-item">
-        <button type="button" class="button is-small" v-text="date"></button>
+        <button type="button" class="button is-small" v-text="$store.state.date"></button>
       </div>
       </div>
     </div>
     <section>
       <div class="control">
-        <span v-if="!pemesanan.selected">
+        <span v-if="!used">
           <button class="button is-success">Tambah</button>
         </span>
-        <span v-if="pemesanan.selected">
-          <button class="button is-primary" @click="pemesanan.selected = ''">Batal</button>
+        <span v-if="used">
+          <button class="button is-primary" @click="used = ''">Batal</button>
           <button class="button is-success">Ubah</button>
           <button class="button is-danger">Hapus</button>
         </span>
@@ -39,7 +39,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(pesan, id) in pemesanan.data" :key="id" @click="selectPesanan(pesan)" @dblclick="actionPesanan(pesan)" :class="{ 'is-selected': (pemesanan.selected == pesan ? true: false) }">
+          <tr v-for="(pesan, id) in $store.state.pemesanan" :key="id" @click="selectPesanan(pesan)" @dblclick="actionPesanan(pesan)" :class="{ 'is-selected': (used == pesan ? true: false) }">
             <td v-text="id+1"></td>
             <td v-text="pesan.name"></td>
             <td v-text="pesan.booking_code"></td>

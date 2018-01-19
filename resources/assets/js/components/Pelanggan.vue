@@ -69,17 +69,17 @@
       </div>
       <div class="level-right">
       <div class="level-item">
-        <button type="button" class="button is-small" v-text="date"></button>
+        <button type="button" class="button is-small" v-text="$store.state.date"></button>
       </div>
       </div>
     </div>
     <section>
       <div class="control">
-        <span v-if="!pelanggan.selected">
+        <span v-if="!used">
           <button @click="modal = !modal" class="button is-success">Tambah</button>
         </span>
-        <span v-if="pelanggan.selected">
-          <button class="button is-primary" @click="pelanggan.selected = ''">Batal</button>
+        <span v-if="used">
+          <button class="button is-primary" @click="used = ''">Batal</button>
           <button class="button is-success">Ubah</button>
           <button class="button is-danger">Hapus</button>
         </span>
@@ -97,7 +97,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(user, id) in pelanggan.data" :key="id" @click="selectPelanggan(user)" :class="{ 'is-selected': (pelanggan.use == user ? true:false) }">
+          <tr v-for="(user, id) in $store.state.pelanggan" :key="id" @click="selectPelanggan(user)" :class="{ 'is-selected': (used == user ? true:false) }">
             <td v-text="id+1"></td>
             <td v-text="user.name"></td>
             <td v-text="user.kota"></td>

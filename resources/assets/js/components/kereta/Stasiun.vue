@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="control is-nested">
-      <span v-if="!stasiun.selected">
+      <span v-if="!used">
         <button class="button is-success">Tambah</button>
       </span>
-      <span v-if="stasiun.selected">
-        <button class="button is-primary" @click="stasiun.selected = ''">Batal</button>
+      <span v-if="used">
+        <button class="button is-primary" @click="used = ''">Batal</button>
         <button class="button is-success">Ubah</button>
         <button class="button is-danger">Hapus</button>
       </span>
@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(stas, id) in stasiun.data" :key="id" @click="selectStasiun(stas)" :class="{ 'is-selected': (stasiun.selected == stas ? true:false) }">
+        <tr v-for="(stas, id) in $store.state.stasiun" :key="id" @click="selectStasiun(stas)" :class="{ 'is-selected': (used == stas ? true:false) }">
           <td v-text="id+1"></td>
           <td v-text="stas.kode"></td>
           <td v-text="stas.name"></td>
