@@ -1,16 +1,27 @@
 import axios from './axios'
 
+function error (err) {
+    if (err.response.status == 401) {
+        sessionStorage.removeItem("token");
+        window.location = '/login'
+    } else {
+        console.error(err)
+    }
+}
+
 export default {
-    pelanggan: function (callback) {
+    getCostumers: function (callback) {
         axios.get('/api/pelanggan')
         .then(response => {
             callback(response.data)
         })
-        .catch(err => {
-            if (err.response.status == 401) {
-                sessionStorage.removeItem("token");
-                window.location = '/login'
-            }
+        .catch(err => { error(err) })
+    },
+    deleteCostumers: function (id, callback) {
+        axios.delete('/api/pelanggan/' + id)
+        .then(response => {
+            callback(response)
         })
+        .catch(err => { error(err) })
     }
 }
