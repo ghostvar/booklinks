@@ -1,5 +1,6 @@
 import dateFormat from './dateformat'
 import data from './data.json'
+import model from './model'
 export default {
     install(Vue, options) {
         Vue.mixin({
@@ -40,7 +41,7 @@ export default {
                     }, 1000)
 
                     this.pemesanan.data = data.pemesanan
-                    this.pelanggan.data = data.pelanggan
+                    model.pelanggan(data => { this.pelanggan.data = data })
                     this.stasiun.data = data.stasiun
                     this.kereta.data = data.kereta
                     this.jadwalKereta.data = data.jadwalKereta
@@ -65,6 +66,11 @@ export default {
                 },
                 selectJadwalKereta(jadwal) {
                     this.jadwalKereta.selected = jadwal
+                }
+            },
+            beforeCreate() {
+                if (!sessionStorage.getItem("token")) {
+                    window.location = '/login'
                 }
             },
             mounted() {

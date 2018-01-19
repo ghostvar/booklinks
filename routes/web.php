@@ -15,4 +15,8 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/login', function () {
+    return view('login');
+});
+
+//Route::get('/home', 'HomeController@index')->name('home');

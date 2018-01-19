@@ -97,7 +97,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(user, id) in pelanggan.data" :key="id" @click="selectPelanggan(user)" :class="{ 'is-selected': (pelanggan.selected == user ? true:false) }">
+          <tr v-for="(user, id) in pelanggan.data" :key="id" @click="selectPelanggan(user)" :class="{ 'is-selected': (pelanggan.use == user ? true:false) }">
             <td v-text="id+1"></td>
             <td v-text="user.name"></td>
             <td v-text="user.kota"></td>
