@@ -4,7 +4,7 @@
       <div @click="modal = !modal" class="modal-background"></div>
       <div class="modal-content">
         <div class="box">
-
+          <form action="post" @submit.prevent="actionPelanggan">
           <div class="field">
             <label class="label">Username</label>
             <div class="control has-icons-left has-icons-right">
@@ -56,7 +56,7 @@
               <button @click="modal = !modal" class="button is-text">Cancel</button>
             </div>
           </div>
-
+          </form>
         </div>
       </div>
       <button @click="modal = !modal" class="modal-close is-large" aria-label="close"></button>
