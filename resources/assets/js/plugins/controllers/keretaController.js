@@ -1,3 +1,5 @@
+import Kereta from '../models/Kereta'
+
 export default {
     initStasiun() {
         this.used = {
@@ -15,6 +17,20 @@ export default {
             name: stasiun.name
         }
     },
+    actionStasiun() {
+        Kereta.actionStasiun(this.used, () => {
+            this.init();
+            this.initStasiun();
+            this.modal = !this.modal;
+        })
+    },
+    deleteStasiun() {
+        Kereta.deleteStasiun(this.used.id, () => {
+            this.init();
+            this.initStasiun();
+        })
+    },
+
     initKereta(kereta) {
         this.used = {
             id: '',
@@ -27,6 +43,20 @@ export default {
             name: kereta.name
         }
     },
+    actionKereta() {
+        Kereta.actionTrain(this.used, () => {
+            this.init();
+            this.initKereta();
+            this.modal = !this.modal
+        })
+    },
+    deleteKereta() {
+        Kereta.deleteTrain(this.used.id, () => {
+            this.init();
+            this.initPelanggan();
+        })
+    },
+
     initJadwalKereta() {
         this.used = {
             id: '',

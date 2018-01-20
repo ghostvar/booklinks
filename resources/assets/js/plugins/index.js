@@ -1,5 +1,6 @@
 import data from './data.json'
 import Pelanggan from './models/Pelanggan'
+import Kereta from './models/Kereta'
 
 import pelangganController from './controllers/pelangganController'
 import pemesanController from './controllers/pesananController'
@@ -29,9 +30,9 @@ export default {
                     }, 1000)
 
                     this.$store.commit('setPemesanan', data.pemesanan);
-                    Pelanggan.getCostumers(data => { this.$store.commit('setPelanggan', data) })
-                    this.$store.commit('setStasiun', data.stasiun);
-                    this.$store.commit('setKereta', data.kereta);
+                    Pelanggan.getCostumers(data => { this.$store.commit('setPelanggan', data) });
+                    Kereta.getStasiun(data => { this.$store.commit('setStasiun', data); });
+                    Kereta.getTrains(data => { this.$store.commit('setKereta', data); });
                     this.$store.commit('setJadwalKereta', data.jadwalKereta);
                 }
             },
