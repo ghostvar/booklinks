@@ -14,11 +14,11 @@
     </div>
     <section>
       <div class="control">
-        <span v-if="!used">
+        <span v-if="!used.id">
           <button class="button is-success">Tambah</button>
         </span>
-        <span v-if="used">
-          <button class="button is-primary" @click="used = ''">Batal</button>
+        <span v-if="used.id">
+          <button class="button is-primary" @click="initPesanan()">Batal</button>
           <button class="button is-success">Ubah</button>
           <button class="button is-danger">Hapus</button>
         </span>
@@ -39,18 +39,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(pesan, id) in $store.state.pemesanan" :key="id" @click="selectPesanan(pesan)" @dblclick="actionPesanan(pesan)" :class="{ 'is-selected': (used == pesan ? true: false) }">
+          <tr v-for="(pesanan, id) in $store.state.pemesanan" :key="id" @click="selectPesanan(pesanan)" @dblclick="actionPesanan(pesanan)" :class="{ 'is-selected': (used.id == pesanan.id ? true: false) }">
             <td v-text="id+1"></td>
-            <td v-text="pesan.name"></td>
-            <td v-text="pesan.booking_code"></td>
-            <td v-text="pesan.jenis"></td>
-            <td v-text="pesan.created_at"></td>
-            <td v-text="pesan.updated_at"></td>
-            <td v-text="(pesan.status ? pesan.status: 'N/A')"></td>
-            <td v-text="(pesan.payment_status ? pesan.payment_status: 'N/A')"></td>
+            <td v-text="pesanan.name"></td>
+            <td v-text="pesanan.booking_code"></td>
+            <td v-text="pesanan.jenis"></td>
+            <td v-text="pesanan.created_at"></td>
+            <td v-text="pesanan.updated_at"></td>
+            <td v-text="(pesanan.status ? pesanan.status: 'N/A')"></td>
+            <td v-text="(pesanan.payment_status ? pesanan.payment_status: 'N/A')"></td>
           </tr>
         </tbody>
       </table>
     </section>
   </main>
 </template>
+
+<script>
+export default {
+  mounted() {
+    this.initPesanan()
+  }
+}
+</script>

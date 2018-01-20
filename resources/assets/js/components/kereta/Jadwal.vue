@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="control is-nested">
-      <span v-if="!used">
+      <span v-if="!used.id">
         <button class="button is-success">Tambah</button>
       </span>
-      <span v-if="used">
-        <button class="button is-primary" @click="used = ''">Batal</button>
+      <span v-if="used.id">
+        <button class="button is-primary" @click="initJadwalKereta">Batal</button>
         <button class="button is-success">Ubah</button>
         <button class="button is-danger">Hapus</button>
       </span>
@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(jadwal, id) in $store.state.jadwalKereta" :key="id" @click="selectJadwalKereta(jadwal)" :class="{ 'is-selected': (used == jadwal ? true:false) }">
+        <tr v-for="(jadwal, id) in $store.state.jadwalKereta" :key="id" @click="selectJadwalKereta(jadwal)" :class="{ 'is-selected': (used.id == jadwal.id ? true:false) }">
           <td v-text="id+1"></td>
           <td v-text="jadwal.nama_kereta"></td>
           <td v-text="jadwal.waktu_berangkat"></td>
@@ -36,3 +36,11 @@
     </table>
   </div>    
 </template>
+
+<script>
+export default {
+  mounted() {
+    this.initJadwalKereta();
+  }
+}
+</script>
