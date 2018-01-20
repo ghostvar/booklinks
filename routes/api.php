@@ -17,15 +17,21 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::group(['middleware' => 'cors'], function () {
+Route::group(['middleware' => 'cors'], function () { // Handler Cors
     Route::post('/auth/login', 'AuthController@login');
     Route::post('/auth/register', 'AuthController@register');
-    Route::group(['middleware' => 'jwt'], function () {
-        // Protected routes
+    Route::group(['middleware' => 'jwt'], function () { // Protected routes
+        
         // Costumer Routes
         Route::get('/pelanggan', 'CostumerController@getAllCostumers');
         Route::post('/pelanggan', 'CostumerController@insertCostumer');
         Route::put('/pelanggan', 'CostumerController@updateCostumer');
         Route::delete('/pelanggan/{id}', 'CostumerController@deleteCostumer');
+
+        // Trains Routes
+        Route::get('/kereta', 'KeretaController@getTrains');
+        Route::post('/kereta', 'KeretaController@insertTrain');
+        Route::put('/kereta', 'KeretaController@updateTrain');
+        Route::delete('/kereta/{id}', 'KeretaController@deleteTrain');
     });
 });
