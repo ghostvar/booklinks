@@ -31,4 +31,32 @@ class KeretaController extends Controller
         $kereta->delete();
         return [ 'status' => 'success', 'messages' => 'all done!' ];
     }
+
+    public function getStasiun () {
+        return Stasiun::get();
+    }
+
+    public function insertStasiun (Request $request) {
+        $stasiun = new Stasiun;
+        $stasiun->kode = $request->input('kode');
+        $stasiun->kota = $request->input('kota');
+        $stasiun->name = $request->input('name');
+        $stasiun->save();
+        return [ 'status' => 'success', 'messages' => 'all done!' ];
+    }
+
+    public function updateStasiun (Request $request) {
+        $stasiun = Stasiun::find($request->input('id'));
+        $stasiun->kode = $request->input('kode');
+        $stasiun->kota = $request->input('kota');
+        $stasiun->name = $request->input('name');
+        $stasiun->save();
+        return [ 'status' => 'success', 'messages' => 'all done!' ];
+    }
+
+    public function deleteStasiun ($id) {
+        $stasiun = Stasiun::find($id);
+        $stasiun->delete();
+        return [ 'status' => 'success', 'messages' => 'all done!' ];
+    }
 }
