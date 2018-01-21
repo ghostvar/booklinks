@@ -53,7 +53,7 @@
               <button @click="actionPelanggan" class="button is-success">Simpan</button>
             </div>
             <div class="control">
-              <button @click="modal = !modal" class="button is-text">Cancel</button>
+              <button type="button" @click="modal = !modal" class="button is-text">Cancel</button>
             </div>
           </div>
           </form>
