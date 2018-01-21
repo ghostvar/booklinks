@@ -15,6 +15,9 @@ class CreateKeretaTable extends Migration
     {
         Schema::create('kereta', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('eco_seat_num');
+            $table->string('busines_seat_num');
+            $table->string('exec_seat_num');
             $table->string('name');
             $table->timestamps();
         });
