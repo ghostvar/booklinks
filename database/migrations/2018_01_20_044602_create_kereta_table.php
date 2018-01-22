@@ -18,6 +18,7 @@ class CreateKeretaTable extends Migration
             $table->string('eco_seat_num');
             $table->string('busines_seat_num');
             $table->string('exec_seat_num');
+            $table->integer('no_kereta');
             $table->string('name');
             $table->timestamps();
         });

@@ -15,7 +15,6 @@ class CreateJalurKeretaTable extends Migration
     {
         Schema::create('jalur_kereta', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('kereta_no');
             $table->string('jalur_awal');
             $table->string('jalur_akhir');
             $table->string('urutan_jalur');
