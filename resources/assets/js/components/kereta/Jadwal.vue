@@ -25,11 +25,11 @@
       <tbody>
         <tr v-for="(jadwal, id) in $store.state.jadwalKereta" :key="id" @click="selectJadwalKereta(jadwal)" :class="{ 'is-selected': (used.id == jadwal.id ? true:false) }">
           <td v-text="id+1"></td>
-          <td v-text="jadwal.nama_kereta"></td>
+          <td v-text="jadwal.kereta.name"></td>
           <td v-text="jadwal.waktu_berangkat"></td>
           <td v-text="jadwal.stasiun_berangkat"></td>
-          <td v-text="jadwal.waktu_datang"></td>
-          <td v-text="jadwal.stasiun_datang"></td>
+          <td v-text="jadwal.waktu_sampai"></td>
+          <td v-text="jadwal.stasiun_sampai"></td>
           <td v-text="jadwal.waktu_tempuh + ' Jam'"></td>
         </tr>
       </tbody>

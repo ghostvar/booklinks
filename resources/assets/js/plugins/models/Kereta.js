@@ -50,5 +50,13 @@ export default {
             callback(res)
         })
         .catch(err => { error(err) })
+    },
+
+    getJadwal(callback) {
+        axios.get('/api/jurusan')
+        .then(res => {
+            callback(res.data);
+        })
+        .catch(err => { error(err) })
     }
 }

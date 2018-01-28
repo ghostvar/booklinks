@@ -33,7 +33,7 @@ export default {
                     Pelanggan.getCostumers(data => { this.$store.commit('setPelanggan', data) });
                     Kereta.getStasiun(data => { this.$store.commit('setStasiun', data); });
                     Kereta.getTrains(data => { this.$store.commit('setKereta', data); });
-                    this.$store.commit('setJadwalKereta', data.jadwalKereta);
+                    Kereta.getJadwal(data => { this.$store.commit('setJadwalKereta', data); });
                 }
             },
             beforeCreate() {
