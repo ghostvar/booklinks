@@ -4,9 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "755420a5cfd1068f9e378c92ab5ef6ea",
-    "content-hash": "2cea76b934af9cd5ce54133c9ac0d880",
+    "hash": "05e3e47a0062fad70eec96c7287d32a0",
+    "content-hash": "3ea367a1d9008f1172a7a58636446d54",
     "packages": [
+        {
+            "name": "crockett/csv-seeder",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andycrockett/laravel-csv-seeder.git",
+                "reference": "e5d97e12da1d7033f68c67130fefc7bb93099ccd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andycrockett/laravel-csv-seeder/zipball/e5d97e12da1d7033f68c67130fefc7bb93099ccd",
+                "reference": "e5d97e12da1d7033f68c67130fefc7bb93099ccd",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.0.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Crockett\\CsvSeeder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andy Crockett",
+                    "email": "andyhcrockett@gmail.com"
+                }
+            ],
+            "description": "Database seeding using CSV files",
+            "keywords": [
+                "csv",
+                "laravel",
+                "seed",
+                "seeder",
+                "seeding",
+                "seeds"
+            ],
+            "time": "2016-02-11 08:41:47"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -319,6 +364,50 @@
                 "trusted proxy"
             ],
             "time": "2017-06-15 17:19:42"
+        },
+        {
+            "name": "flynsarmy/csv-seeder",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flynsarmy/laravel-csv-seeder.git",
+                "reference": "9b6b261082bf7ff245eeb355261e1038cbd89262"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flynsarmy/laravel-csv-seeder/zipball/9b6b261082bf7ff245eeb355261e1038cbd89262",
+                "reference": "9b6b261082bf7ff245eeb355261e1038cbd89262",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=4.1.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Flynsarmy\\CsvSeeder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Flyn San",
+                    "email": "flynsarmy@gmail.com"
+                }
+            ],
+            "description": "Allows seeding of the database with CSV files",
+            "keywords": [
+                "csv",
+                "laravel",
+                "seed",
+                "seeding",
+                "seeds"
+            ],
+            "time": "2015-09-04 04:13:30"
         },
         {
             "name": "jakub-onderka/php-console-color",

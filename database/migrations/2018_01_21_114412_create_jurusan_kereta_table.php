@@ -17,9 +17,9 @@ class CreateJurusanKeretaTable extends Migration
             $table->increments('id');
             $table->string('stasiun_berangkat');
             $table->string('stasiun_sampai');
-            $table->string('waktu_berangkat');
-            $table->string('waktu_sampai');
-            $table->integer('kereta_id');
+            $table->time('waktu_berangkat');
+            $table->time('waktu_sampai');
+            $table->integer('kereta_no');
             $table->timestamps();
         });
     }

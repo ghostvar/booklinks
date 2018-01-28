@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJalurKeretaTable extends Migration
+class CreateRuteKeretaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateJalurKeretaTable extends Migration
      */
     public function up()
     {
-        Schema::create('jalur_kereta', function (Blueprint $table) {
+        Schema::create('rute_kereta', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('jalur_awal');
-            $table->string('jalur_akhir');
-            $table->string('urutan_jalur');
+            $table->integer('jurusan_id');
+            $table->string('stasiun_berangkat');
+            $table->string('stasiun_sampai');
             $table->time('waktu_berangkat');
             $table->time('waktu_sampai');
-            $table->timestamps();
+            $table->integer('urutan');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateJalurKeretaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jalur_kereta');
+        Schema::dropIfExists('rute_kereta');
     }
 }
