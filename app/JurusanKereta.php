@@ -38,6 +38,10 @@ class JurusanKereta extends Model
         $datas = JurusanKereta::get();
         foreach($datas as $data) {
             $result[$i] = $data;
+            $time1 = strtotime("1/1/1980 ".$data->waktu_berangkat); 
+            $time2 = strtotime("1/1/1980 ".$data->waktu_sampai);
+            if ($time2 < $time1) { $time2 = $time2 + 86400; }
+            $result[$i]->waktu_tempuh = ($time2 - $time1) / 3600;
             $result[$i]->stasiun_berangkat = JurusanKereta::find($data->id)->stasiunBerangkat->name;
             $result[$i]->stasiun_sampai = JurusanKereta::find($data->id)->stasiunSampai->name;
             $result[$i]->kereta = JurusanKereta::find($data->id)->kereta;
