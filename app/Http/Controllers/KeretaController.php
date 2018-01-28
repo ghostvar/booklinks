@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kereta;
 use App\Stasiun;
+use App\JurusanKereta;
 
 class KeretaController extends Controller
 {
@@ -58,5 +59,9 @@ class KeretaController extends Controller
         $stasiun = Stasiun::find($id);
         $stasiun->delete();
         return [ 'status' => 'success', 'messages' => 'all done!' ];
+    }
+
+    public function getAllJurusan () {
+        return JurusanKereta::getAll();
     }
 }

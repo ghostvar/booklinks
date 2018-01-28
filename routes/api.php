@@ -39,5 +39,8 @@ Route::group(['middleware' => 'cors'], function () { // Handler Cors
         Route::post('/stasiun', 'KeretaController@insertStasiun');
         Route::put('/stasiun', 'KeretaController@updateStasiun');
         Route::delete('/stasiun/{id}', 'KeretaController@deleteStasiun');
+
+        // Jurusan Kereta Routes
+        Route::get('/jurusan', 'KeretaController@getAllJurusan');
     });
 });
