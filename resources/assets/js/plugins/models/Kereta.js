@@ -20,11 +20,16 @@ export default {
     actionTrain(data, callback) {
         axios({
             method: (data.id ? 'put':'post'),
-            url: '/api/kereta'
+            url: '/api/kereta',
+            data
         })
+        .then(() => {
+            callback()
+        })
+        .catch(err => { error(err) })
     },
     deleteTrain(id, callback) {
-        axios.delete('/api/pelangan/' + id)
+        axios.delete('/api/kereta/' + id)
         .then(res => {
             callback(res)
         })
@@ -41,7 +46,8 @@ export default {
     actionStasiun(data, callback) {
         axios({
             method: (data.id ? 'put':'post'),
-            url: '/api/stasiun'
+            url: '/api/stasiun',
+            data
         })
     },
     deleteStasiun(id, callback) {

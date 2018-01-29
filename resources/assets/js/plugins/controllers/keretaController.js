@@ -34,13 +34,21 @@ export default {
     initKereta(kereta) {
         this.used = {
             id: '',
-            name: ''
+            name: '',
+            no_kereta: '',
+            eco_seat_num: '',
+            busines_seat_num: '',
+            exec_seat_num: ''
         }
     },
     selectKereta(kereta) {
         this.used = {
             id: kereta.id,
-            name: kereta.name
+            name: kereta.name,
+            no_kereta: kereta.no_kereta,
+            eco_seat_num: kereta.eco_seat_num,
+            busines_seat_num: kereta.busines_seat_num,
+            exec_seat_num: kereta.exec_seat_num
         }
     },
     actionKereta() {
@@ -53,7 +61,7 @@ export default {
     deleteKereta() {
         Kereta.deleteTrain(this.used.id, () => {
             this.init();
-            this.initPelanggan();
+            this.initKereta();
         })
     },
 

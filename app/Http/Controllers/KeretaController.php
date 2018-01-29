@@ -15,14 +15,22 @@ class KeretaController extends Controller
 
     public function insertTrain (Request $request) {
         $kereta = new Kereta;
+        $kereta->no_kereta = $request->input('no_kereta');
         $kereta->name = $request->input('name');
+        $kereta->eco_seat_num = $request->input('eco_seat_num');
+        $kereta->busines_seat_num = $request->input('busines_seat_num');
+        $kereta->exec_seat_num = $request->input('exec_seat_num');
         $kereta->save();
         return [ 'status' => 'success', 'messages' => 'all done!' ];
     }
 
     public function updateTrain (Request $request) {
         $kereta = Kereta::find($request->input('id'));
+        $kereta->no_kereta = $request->input('no_kereta');
         $kereta->name = $request->input('name');
+        $kereta->eco_seat_num = $request->input('eco_seat_num');
+        $kereta->busines_seat_num = $request->input('busines_seat_num');
+        $kereta->exec_seat_num = $request->input('exec_seat_num');
         $kereta->save();
         return [ 'status' => 'success', 'messages' => 'all done!' ];
     }
