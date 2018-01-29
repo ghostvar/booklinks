@@ -5,7 +5,10 @@ function error (err) {
         sessionStorage.removeItem("token");
         window.location = '/login'
     } else {
-        console.error(err)
+        //console.error(err)
+        if(err.response.data.message) {
+            alert(err.response.data.message)
+        }
     }
 }
 
