@@ -49,6 +49,10 @@ export default {
             url: '/api/stasiun',
             data
         })
+        .then(() => {
+            callback()
+        })
+        .catch(err => { error(err) })
     },
     deleteStasiun(id, callback) {
         axios.delete('/api/stasiun/' + id)

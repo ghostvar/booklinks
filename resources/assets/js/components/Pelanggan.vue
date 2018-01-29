@@ -6,9 +6,9 @@
         <div class="box">
           <form action="post" @submit.prevent="actionPelanggan">
           <div class="field">
-            <label class="label">Username</label>
+            <label class="label">Nama Lengkap</label>
             <div class="control has-icons-left has-icons-right">
-              <input v-model="used.name" class="input" type="text" placeholder="Username Anda">
+              <input v-model="used.name" class="input" type="text" placeholder="Nama Anda">
               <span class="icon is-small is-left">
                 <i class="fa fa-user"></i>
               </span>
