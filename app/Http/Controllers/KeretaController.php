@@ -70,6 +70,10 @@ class KeretaController extends Controller
     }
 
     public function getAllJurusan () {
-        return JurusanKereta::getAll();
+        return JurusanKereta::with([
+            'kereta:no_kereta,name,eco_seat_num,busines_seat_num,exec_seat_num',
+            'rute.stasiunBerangkat:kode,kota,name',
+            'rute.stasiunSampai:kode,kota,name'
+        ])->get();
     }
 }

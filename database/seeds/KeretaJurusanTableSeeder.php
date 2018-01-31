@@ -16,11 +16,7 @@ class KeretaJurusanTableSeeder extends CsvSeeder
         $this->offset_rows = 1;
         $this->mapping = [
             0 => 'id',
-            1 => 'stasiun_berangkat',
-            2 => 'stasiun_sampai',
-            3 => 'waktu_berangkat',
-            4 => 'waktu_sampai',
-            5 => 'kereta_no'
+            1 => 'kereta_no'
         ];
         $this->should_trim = true;
 	}

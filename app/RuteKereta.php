@@ -15,4 +15,12 @@ class RuteKereta extends Model
         'waktu_sampai',
         'urutan_jalur'
     ];
+
+    public function stasiunBerangkat () {
+        return $this->hasOne('App\Stasiun', 'kode', 'stasiun_berangkat');
+    }
+
+    public function stasiunSampai () {
+        return $this->hasOne('App\Stasiun', 'kode', 'stasiun_berangkat');
+    }
 }

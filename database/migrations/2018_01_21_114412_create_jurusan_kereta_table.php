@@ -15,10 +15,6 @@ class CreateJurusanKeretaTable extends Migration
     {
         Schema::create('jurusan_kereta', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('stasiun_berangkat');
-            $table->string('stasiun_sampai');
-            $table->time('waktu_berangkat');
-            $table->time('waktu_sampai');
             $table->integer('kereta_no');
             $table->timestamps();
         });
