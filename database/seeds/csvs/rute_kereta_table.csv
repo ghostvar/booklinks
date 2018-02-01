@@ -3,8 +3,8 @@ no,id jurusan,stasiun berangkat,stasiun sampai,waktu berangkat,waktu sampai,urut
 2,1,SMT,PK,11:30,12:37,2
 3,1,PK,CN,12:40,14:17,3
 4,1,CN,JTG,14:23,16:45,4
-5,1,JTG,GBR,16:47,17:00,5
-6,2,GBR,CN,9:30,12:09,1
+5,1,JTG,GMR,16:47,17:00,5
+6,2,GMR,CN,9:30,12:09,1
 7,2,CN,PK,12:15,13:49,2
 8,2,PK,SMT,13:52,14:59,3
 9,2,SMT,SBI,15:09,18:30,4
