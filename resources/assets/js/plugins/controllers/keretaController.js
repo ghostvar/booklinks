@@ -68,23 +68,15 @@ export default {
     initJadwalKereta() {
         this.used = {
             id: '',
-            nama_kereta: '',
-            stasiun_berangkat: '',
-            stasiun_datang: '',
-            waktu_berangkat: '',
-            waktu_datang: '',
-            waktu_tempuh: ''
+            kereta: {},
+            rute: []
         }
     },
     selectJadwalKereta(jadwal) {
         this.used = {
             id: jadwal.id,
-            nama_kereta: jadwal.nama_kereta,
-            stasiun_berangkat: jadwal.stasiun_berangkat,
-            stasiun_datang: jadwal.stasiun_datang,
-            waktu_berangkat: jadwal.waktu_berangkat,
-            waktu_datang: jadwal.waktu_datang,
-            waktu_tempuh: jadwal.waktu_tempuh
+            kereta: jadwal.kereta,
+            rute: jadwal.rute
         }
     }
 }
