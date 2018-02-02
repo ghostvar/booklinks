@@ -21,6 +21,6 @@ class RuteKereta extends Model
     }
 
     public function stasiunSampai () {
-        return $this->hasOne('App\Stasiun', 'kode', 'stasiun_berangkat');
+        return $this->hasOne('App\Stasiun', 'kode', 'stasiun_sampai');
     }
 }
