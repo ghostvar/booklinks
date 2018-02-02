@@ -3,11 +3,11 @@
     <span v-if="viewMode == 'default'">
       <div class="control is-nested">
         <span v-if="!used.id">
-          <button class="button is-success" @click="viewMode = 'add'">Tambah</button>
+          <button class="button is-success" @click="viewMode = 'add'; initRute()">Tambah</button>
         </span>
         <span v-if="used.id">
-          <button class="button is-light is-text" @click="initJadwalKereta">Batal</button>
-          <button class="button is-success">Ubah</button>
+          <button class="button is-light is-text" @click="initJadwalKereta(); initRute()">Batal</button>
+          <button class="button is-success" @click="viewMode = 'edit'">Ubah</button>
           <button class="button is-danger">Hapus</button>
         </span>
       </div>
@@ -36,7 +36,7 @@
         </tbody>
       </table>
     </span>
-    <span v-if="viewMode == 'add'">
+    <span v-if="viewMode == 'add' || viewMode == 'edit'">
       <div class="control is-nested">
         <button class="button is-light is-text" @click="viewMode = 'default'">Kembali</button>
       </div>
@@ -48,7 +48,7 @@
               <div class="select is-small">
                 <select>
                   <option>Pilih Kereta</option>
-                  <option v-for="(kereta, id) in $store.state.kereta" :key="id" v-text="kereta.name"></option>
+                  <option v-for="(kereta, id) in $store.state.kereta" :key="id" :selected="(used.kereta.no_kereta == kereta.no_kereta ? true:false)" v-text="kereta.name"></option>
                 </select>
               </div>
             </div>
@@ -63,14 +63,14 @@
               <div class="select is-small">
                 <select>
                   <option>Pilih Stasiun</option>
-                  <option v-for="(stasiun, id) in $store.state.stasiun" :key="id" :value="stasiun.kode" v-text="stasiun.name"></option>
+                  <option v-for="(stasiun, id) in $store.state.stasiun" :key="id" :selected="(ruteSelect.stasiun_berangkat.kode == stasiun.kode ? true:false)" :value="stasiun.kode" v-text="stasiun.name"></option>
                 </select>
               </div>
             </div>
           </div>
           <div class="field">
             <div class="control">
-              <input class="input is-small" type="time" placeholder="">
+              <input v-model="ruteSelect.waktu_berangkat" class="input is-small" type="time" placeholder="">
             </div>
           </div>
         </div>
@@ -81,14 +81,14 @@
               <div class="select is-small">
                 <select>
                   <option>Pilih Stasiun</option>
-                  <option v-for="(stasiun, id) in $store.state.stasiun" :key="id" :value="stasiun.kode" v-text="stasiun.name"></option>
+                  <option v-for="(stasiun, id) in $store.state.stasiun" :key="id" :selected="(ruteSelect.stasiun_sampai.kode == stasiun.kode ? true:false)" :value="stasiun.kode" v-text="stasiun.name"></option>
                 </select>
               </div>
             </div>
           </div>
           <div class="field">
             <div class="control">
-              <input class="input is-small" type="time" placeholder="">
+              <input v-model="ruteSelect.waktu_sampai" class="input is-small" type="time" placeholder="">
             </div>
           </div>
         </div>
@@ -105,8 +105,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
+            <tr v-for="(rute, id) in used.rute" :key="id" @click="selectRute(rute)" :class="{ 'is-selected': (ruteSelect.id == rute.id ? true:false) }">
+              <td v-text="id+1"></td>
+              <td v-text="rute.stasiun_berangkat.name"></td>
+              <td v-text="rute.waktu_berangkat"></td>
+              <td v-text="rute.stasiun_sampai.name"></td>
+              <td v-text="rute.waktu_sampai"></td>
             </tr>
           </tbody>
         </table>
@@ -119,7 +123,44 @@
 export default {
   data() {
     return {
-      viewMode: 'default'
+      viewMode: 'default',
+      ruteSelect: {
+        id: '',
+				jurusan_id: '',
+				stasiun_berangkat: '',
+				stasiun_sampai: '',
+				waktu_berangkat: '',
+				waktu_sampai: '',
+				urutan: ''
+      },
+      time: ''
+    }
+  },
+  methods: {
+    initRute() {
+      this.ruteSelect = {
+        id: '',
+				jurusan_id: '',
+				stasiun_berangkat: '',
+				stasiun_sampai: '',
+				waktu_berangkat: '',
+				waktu_sampai: '',
+				urutan: ''
+      }
+    },
+    selectRute(rute) {
+      this.ruteSelect = {
+        id: rute.id,
+				jurusan_id: rute.jurusan_id,
+				stasiun_berangkat: rute.stasiun_berangkat,
+				stasiun_sampai: rute.stasiun_sampai,
+				waktu_berangkat: rute.waktu_berangkat,
+				waktu_sampai: rute.waktu_sampai,
+				urutan: rute.urutan
+      }
+    },
+    sendTime() {
+      console.log(this.time)
     }
   },
   mounted() {
