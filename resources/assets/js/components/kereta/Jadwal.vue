@@ -6,7 +6,7 @@
           <button class="button is-success" @click="viewMode = 'add'; initRute()">Tambah</button>
         </span>
         <span v-if="used.id">
-          <button class="button is-light is-text" @click="initJadwalKereta(); initRute()">Batal</button>
+          <button class="button is-light is-text" @click="initJadwalKereta()">Batal</button>
           <button class="button is-success" @click="viewMode = 'edit'">Ubah</button>
           <button class="button is-danger">Hapus</button>
         </span>
@@ -38,7 +38,7 @@
     </span>
     <span v-if="viewMode == 'add' || viewMode == 'edit'">
       <div class="control is-nested">
-        <button class="button is-light is-text" @click="viewMode = 'default'">Kembali</button>
+        <button class="button is-light is-text" @click="viewMode = 'default'; initRute()">Kembali</button>
       </div>
       <div class="columns">
         <div class="column is-4">
@@ -61,9 +61,9 @@
             <label class="label">Keberangkatan</label>
             <div class="control">
               <div class="select is-small">
-                <select>
-                  <option>Pilih Stasiun</option>
-                  <option v-for="(stasiun, id) in $store.state.stasiun" :key="id" :selected="(ruteSelect.stasiun_berangkat.kode == stasiun.kode ? true:false)" :value="stasiun.kode" v-text="stasiun.name"></option>
+                <select v-model="ruteSelect.stasiun_berangkat.kode">
+                  <option :value="null">Pilih Stasiun</option>
+                  <option v-for="(stasiun, id) in $store.state.stasiun" :key="id" :value="stasiun.kode" v-text="stasiun.name"></option>
                 </select>
               </div>
             </div>
@@ -79,9 +79,9 @@
             <label class="label">Kedatangan</label>
             <div class="control">
               <div class="select is-small">
-                <select>
-                  <option>Pilih Stasiun</option>
-                  <option v-for="(stasiun, id) in $store.state.stasiun" :key="id" :selected="(ruteSelect.stasiun_sampai.kode == stasiun.kode ? true:false)" :value="stasiun.kode" v-text="stasiun.name"></option>
+                <select v-model="ruteSelect.stasiun_sampai.kode">
+                  <option :value="null">Pilih Stasiun</option>
+                  <option v-for="(stasiun, id) in $store.state.stasiun" :key="id" :value="stasiun.kode" v-text="stasiun.name"></option>
                 </select>
               </div>
             </div>
@@ -127,8 +127,12 @@ export default {
       ruteSelect: {
         id: '',
 				jurusan_id: '',
-				stasiun_berangkat: '',
-				stasiun_sampai: '',
+				stasiun_berangkat: {
+          kode: null
+        },
+				stasiun_sampai: {
+          kode: null
+        },
 				waktu_berangkat: '',
 				waktu_sampai: '',
 				urutan: ''
@@ -141,8 +145,12 @@ export default {
       this.ruteSelect = {
         id: '',
 				jurusan_id: '',
-				stasiun_berangkat: '',
-				stasiun_sampai: '',
+				stasiun_berangkat: {
+          kode: null
+        },
+				stasiun_sampai: {
+          kode: null
+        },
 				waktu_berangkat: '',
 				waktu_sampai: '',
 				urutan: ''
