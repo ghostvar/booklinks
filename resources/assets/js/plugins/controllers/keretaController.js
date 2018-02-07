@@ -30,6 +30,21 @@ export default {
             this.initStasiun();
         })
     },
+    findStasiunWithCode(kode) {
+        var _return = {};
+        for(var i = 0;this.$store.state.stasiun.length > i;i++) {
+            if (this.$store.state.stasiun[i].kode == kode) {
+                _return = {
+                    kode: kode,
+                    name: this.$store.state.stasiun[i].name,
+                    kota: this.$store.state.stasiun[i].kota
+                };
+            }
+        }
+        return _return;
+        // this.$store.state.stasiun.forEach(stasiun => {
+        // });
+    },
 
     initKereta(kereta) {
         this.used = {
@@ -68,15 +83,37 @@ export default {
     initJadwalKereta() {
         this.used = {
             id: '',
-            kereta: {},
+            kereta: {
+                no_kereta: null
+            },
             rute: []
         }
     },
     selectJadwalKereta(jadwal) {
+        var rute = [];
+        for(var i = 0;jadwal.rute.length > i;i++) {
+            rute.push({
+                id: jadwal.rute[i].id,
+                jurusan_id: jadwal.rute[i].jurusan_id,
+                stasiun_berangkat: {
+                    kode: jadwal.rute[i].stasiun_berangkat.kode,
+                    kota: jadwal.rute[i].stasiun_berangkat.kota,
+                    name: jadwal.rute[i].stasiun_berangkat.name
+                },
+                stasiun_sampai: {
+                    kode: jadwal.rute[i].stasiun_sampai.kode,
+                    kota: jadwal.rute[i].stasiun_sampai.kota,
+                    name: jadwal.rute[i].stasiun_sampai.name
+                },
+                waktu_berangkat: jadwal.rute[i].waktu_berangkat,
+                waktu_sampai: jadwal.rute[i].waktu_sampai,
+                urutan: jadwal.rute[i].urutan
+            })
+        }
         this.used = {
             id: jadwal.id,
             kereta: jadwal.kereta,
-            rute: jadwal.rute
+            rute: rute
         }
     }
 }

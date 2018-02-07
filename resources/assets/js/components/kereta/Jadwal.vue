@@ -37,8 +37,9 @@
       </table>
     </span>
     <span v-if="viewMode == 'add' || viewMode == 'edit'">
+      <form method="post" @submit.prevent="actionTempRute">
       <div class="control is-nested">
-        <button class="button is-light is-text" @click="viewMode = 'default'; initRute()">Kembali</button>
+        <button class="button is-light is-text" type="button" @click="viewMode = 'default'; initRute()">Kembali</button>
       </div>
       <div class="columns">
         <div class="column is-4">
@@ -46,9 +47,9 @@
             <label class="label">Kereta</label>
             <div class="control">
               <div class="select is-small">
-                <select>
-                  <option>Pilih Kereta</option>
-                  <option v-for="(kereta, id) in $store.state.kereta" :key="id" :selected="(used.kereta.no_kereta == kereta.no_kereta ? true:false)" v-text="kereta.name"></option>
+                <select v-model="used.kereta.no_kereta">
+                  <option :value="null">Pilih Kereta</option>
+                  <option v-for="(kereta, id) in $store.state.kereta" :key="id" v-text="kereta.name" :value="kereta.no_kereta"></option>
                 </select>
               </div>
             </div>
@@ -93,6 +94,17 @@
           </div>
         </div>
       </div>
+      <div class="control has-left">
+        <span v-if="!ruteSelect.id">
+          <button class="button is-success" type="submit">Tambah</button>
+        </span>
+        <span v-if="ruteSelect.id">
+          <button class="button is-text is-light" type="button" @click="initRute">Batal</button>
+          <button class="button is-success" type="submit">Ubah</button>
+          <button class="button is-danger" type="button" @click="deleteTempRute">Hapus</button>
+        </span>
+      </div>
+      </form>
       <div>
         <table class="table is-fullwidth is-hoverable is-small">
           <thead>
@@ -124,20 +136,8 @@ export default {
   data() {
     return {
       viewMode: 'default',
-      ruteSelect: {
-        id: '',
-				jurusan_id: '',
-				stasiun_berangkat: {
-          kode: null
-        },
-				stasiun_sampai: {
-          kode: null
-        },
-				waktu_berangkat: '',
-				waktu_sampai: '',
-				urutan: ''
-      },
-      time: ''
+      idAddRute: 0,
+      ruteSelect: {}
     }
   },
   methods: {
@@ -167,12 +167,44 @@ export default {
 				urutan: rute.urutan
       }
     },
-    sendTime() {
-      console.log(this.time)
+    actionTempRute() {
+      if (this.ruteSelect.id) {
+        for(var i = 0;this.used.rute.length > i;i++) {
+          if (this.used.rute[i].id == this.ruteSelect.id) {
+            this.used.rute[i] = {
+              id: this.used.rute[i].id,
+              stasiun_berangkat: this.findStasiunWithCode(this.ruteSelect.stasiun_berangkat.kode),
+              stasiun_sampai: this.findStasiunWithCode(this.ruteSelect.stasiun_sampai.kode),
+              waktu_berangkat: this.ruteSelect.waktu_berangkat,
+              waktu_sampai: this.ruteSelect.waktu_sampai
+            }
+          }
+        }
+      } else {
+        this.idAddRute++;
+        this.used.rute.push({
+          id: this.idAddRute,
+          jurusan_id: '',
+          stasiun_berangkat: this.findStasiunWithCode(this.ruteSelect.stasiun_berangkat.kode),
+          stasiun_sampai: this.findStasiunWithCode(this.ruteSelect.stasiun_sampai.kode),
+          waktu_berangkat: this.ruteSelect.waktu_berangkat,
+			  	waktu_sampai: this.ruteSelect.waktu_sampai
+        })
+      }
+      this.initRute();
+    },
+    deleteTempRute() {
+      for(var i = 0;this.used.rute.length > i;i++) {
+        if (this.used.rute[i].id == this.ruteSelect.id) {
+          this.used.rute.splice(i, 1);
+          this.initRute()
+        }
+      }
     }
   },
   mounted() {
     this.initJadwalKereta();
+    this.initRute();
   }
 }
 </script>
