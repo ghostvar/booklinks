@@ -13,7 +13,7 @@ class RuteKereta extends Model
         'stasiun_sampai',
         'waktu_berangkat',
         'waktu_sampai',
-        'urutan_jalur'
+        'urutan'
     ];
 
     public function stasiunBerangkat () {

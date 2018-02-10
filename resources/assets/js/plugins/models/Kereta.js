@@ -71,5 +71,23 @@ export default {
             callback(res.data);
         })
         .catch(err => { error(err) })
+    },
+    actionJadwal(data, callback) {
+        axios({
+            method: (data.id ? 'put':'post'),
+            url: '/api/jurusan',
+            data
+        })
+        .then(() => {
+            callback()
+        })
+        .catch(err => { error(err) })
+    },
+    deleteJadwal(id, callback) {
+        axios.delete('/api/jurusan/delete.' + id)
+        .then(() => {
+            callback();
+        })
+        .catch(err => { error(err) })
     }
 }

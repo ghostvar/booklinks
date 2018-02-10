@@ -21,6 +21,7 @@ class CreateRuteKeretaTable extends Migration
             $table->time('waktu_berangkat');
             $table->time('waktu_sampai');
             $table->integer('urutan');
+            $table->timestamps();
         });
     }
 

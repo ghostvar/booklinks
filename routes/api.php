@@ -42,5 +42,8 @@ Route::group(['middleware' => 'cors'], function () { // Handler Cors
 
         // Jurusan Kereta Routes
         Route::get('/jurusan', 'KeretaController@getAllJurusan');
+        Route::post('/jurusan', 'KeretaController@insertJurusan');
+        Route::put('/jurusan', 'KeretaController@updateJurusan');
+        Route::delete('/jurusan/{id}', 'KeretaController@deleteJurusan');
     });
 });

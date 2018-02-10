@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Kereta;
 use App\Stasiun;
 use App\JurusanKereta;
+use App\RuteKereta;
 
 class KeretaController extends Controller
 {
@@ -75,5 +76,46 @@ class KeretaController extends Controller
             'rute.stasiunBerangkat:kode,kota,name',
             'rute.stasiunSampai:kode,kota,name'
         ])->get();
+    }
+
+    public function insertJurusan (Request $request) {
+        $jurusan = JurusanKereta::create([
+            'kereta_no' => $request->input('kereta')['no_kereta']
+        ]);
+        $rutes = [];
+        foreach($request->input('rute') as $rute) {
+            $rutes[] = new RuteKereta([
+                'stasiun_berangkat' => $rute['stasiun_berangkat']['kode'],
+                'stasiun_sampai' => $rute['stasiun_sampai']['kode'],
+                'waktu_berangkat' => $rute['waktu_berangkat'],
+                'waktu_sampai' => $rute['waktu_sampai'],
+                'urutan' => $rute['urutan']
+            ]); 
+        }
+        $jurusan->rute()->saveMany($rutes);
+        return [ 'status' => 'success', 'messages' => 'all done!' ];
+    }
+
+    public function updateJurusan (Request $request) {
+        $jurusan = JurusanKereta::find($request->id);
+        $rutes = [];
+        RuteKereta::where('jurusan_id', $jurusan->id)->delete();
+        foreach($request->input('rute') as $rute) {
+            $rutes[] = new RuteKereta([
+                'stasiun_berangkat' => $rute['stasiun_berangkat']['kode'],
+                'stasiun_sampai' => $rute['stasiun_sampai']['kode'],
+                'waktu_berangkat' => $rute['waktu_berangkat'],
+                'waktu_sampai' => $rute['waktu_sampai'],
+                'urutan' => $rute['urutan']
+            ]); 
+        }
+        $jurusan->rute()->saveMany($rutes);
+        return [ 'status' => 'success', 'messages' => 'all done!' ];
+    }
+
+    public function deleteJurusan ($id) {
+        JurusanKereta::find($id)->delete();
+        RuteKereta::where('jurusan_id', $id)->delete();
+        return [ 'status' => 'success', 'messages' => 'all done!' ];
     }
 }

@@ -115,5 +115,16 @@ export default {
             kereta: jadwal.kereta,
             rute: rute
         }
+    },
+    actionJadwalKereta() {
+        Kereta.actionJadwal(this.used, () => {
+            this.viewMode = 'default';
+            this.initRute();
+        })
+    },
+    deleteJadwalKereta() {
+        Kereta.deleteJadwal(this.used.id, () => {
+            this.init();
+        })
     }
 }

@@ -40,6 +40,7 @@
       <form method="post" @submit.prevent="actionTempRute">
       <div class="control is-nested">
         <button class="button is-light is-text" type="button" @click="viewMode = 'default'; initRute()">Kembali</button>
+        <button class="button is-primary" type="button" @click="actionJadwalKereta">Simpan</button>
       </div>
       <div class="columns">
         <div class="column is-4">
@@ -188,7 +189,8 @@ export default {
           stasiun_berangkat: this.findStasiunWithCode(this.ruteSelect.stasiun_berangkat.kode),
           stasiun_sampai: this.findStasiunWithCode(this.ruteSelect.stasiun_sampai.kode),
           waktu_berangkat: this.ruteSelect.waktu_berangkat,
-			  	waktu_sampai: this.ruteSelect.waktu_sampai
+          waktu_sampai: this.ruteSelect.waktu_sampai,
+          urutan: this.idAddRute
         })
       }
       this.initRute();
