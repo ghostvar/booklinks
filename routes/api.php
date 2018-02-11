@@ -45,5 +45,20 @@ Route::group(['middleware' => 'cors'], function () { // Handler Cors
         Route::post('/jurusan', 'KeretaController@insertJurusan');
         Route::put('/jurusan', 'KeretaController@updateJurusan');
         Route::delete('/jurusan/{id}', 'KeretaController@deleteJurusan');
+
+        // Bandara Route
+        Route::get('/bandara', 'PenerbanganController@getAllBandara');
+        Route::post('/bandara', 'PenerbanganController@insertBandara');
+        Route::put('/bandara', 'PenerbanganController@updateBandara');
+        Route::delete('/bandara/{id}', 'PenerbanganController@deleteBandara');
+
+        // Pesawat Route
+        Route::get('/pesawat', 'PenerbanganController@getAllPesawat');
+        Route::post('/pesawat', 'PenerbanganController@insertPesawat');
+        Route::put('/pesawat', 'PenerbanganController@updatePesawat');
+        Route::delete('/pesawat/{id}', 'PenerbanganController@deletePesawat');
+
+        // Penerbangan Route
+        Route::get('/penerbangan', 'PenerbanganController@getAllPenerbangan');
     });
 });
