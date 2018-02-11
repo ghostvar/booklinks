@@ -60,5 +60,8 @@ Route::group(['middleware' => 'cors'], function () { // Handler Cors
 
         // Penerbangan Route
         Route::get('/penerbangan', 'PenerbanganController@getAllPenerbangan');
+        Route::post('/penerbangan', 'PenerbanganController@insertPenerbangan');
+        Route::put('/penerbangan', 'PenerbanganController@updatePenerbangan');
+        Route::delete('/penerbangan/{id}', 'PenerbanganController@deletePenerbangan');
     });
 });
