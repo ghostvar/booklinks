@@ -28,6 +28,9 @@
             <li>
               <router-link to="/penerbangan"><i class="fa fa-plane"></i>Penerbangan</router-link>
             </li>
+            <li>
+              <a @click="logout"><i class="fa fa-sign-out"></i>Keluar</a>
+            </li>
           </ul>
         </aside>
       </div>
