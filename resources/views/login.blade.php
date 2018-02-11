@@ -101,7 +101,12 @@ if (sessionStorage.getItem("token")) {
                 window.location = '/'
             }
             else {
-                alert('Request failed.  Returned status of ' + xhr.status);
+                if (xhr.response) {
+                    alert(JSON.parse(xhr.response).error);
+                    form.elements.namedItem("password").value = ''
+                } else {
+                    alert('Request failed.  Returned status of ' + xhr.status);
+                }
             }
         };
         xhr.send(JSON.stringify(data));
