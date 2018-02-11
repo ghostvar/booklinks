@@ -21,6 +21,10 @@ Route::group(['middleware' => 'cors'], function () { // Handler Cors
     Route::post('/auth/login', 'AuthController@login');
     Route::post('/auth/register', 'AuthController@register');
     Route::group(['middleware' => 'jwt'], function () { // Protected routes
+
+        Route::get('/log', function () {
+            return [ 'status' => 'success', 'messages' => 'you are has login!' ];
+        });
         
         // Costumer Routes
         Route::get('/pelanggan', 'CostumerController@getAllCostumers');
