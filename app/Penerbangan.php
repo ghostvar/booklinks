@@ -21,14 +21,14 @@ class Penerbangan extends Model
     ];
 
     public function pesawat () {
-        $this->hasOne('App\Pesawat', 'id', 'pesawat_id');
+        return $this->hasOne('App\Pesawat', 'id', 'pesawat_id');
     }
 
     public function asal () {
-        $this->hasOne('App\Bandara', 'kode', 'asal');
+        return $this->hasOne('App\Bandara', 'kode', 'asal');
     }
 
     public function tujuan () {
-        $this->hasOne('App\Bandara', 'kode', 'tujuan');
+        return $this->hasOne('App\Bandara', 'kode', 'tujuan');
     }
 }
