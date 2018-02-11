@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Bandara;
 use App\Pesawat;
 use App\Penerbangan;
+use Illuminate\Routing\Controller;
 
 class PenerbanganController extends Controller
 {

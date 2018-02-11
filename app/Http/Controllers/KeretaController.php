@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Kereta;
 use App\Stasiun;
 use App\JurusanKereta;
+use Illuminate\Routing\Controller;
 use App\RuteKereta;
 
 class KeretaController extends Controller
