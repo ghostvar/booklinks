@@ -18,7 +18,7 @@
           <button class="button is-success">Tambah</button>
         </span>
         <span v-if="used.id">
-          <button class="button is-primary" @click="initPesanan()">Batal</button>
+          <button class="button is-text is-light" @click="initPesanan()">Batal</button>
           <button class="button is-success">Ubah</button>
           <button class="button is-danger">Hapus</button>
         </span>

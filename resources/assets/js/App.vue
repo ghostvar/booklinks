@@ -26,7 +26,7 @@
               <router-link to="/kereta"><i class="fa fa-train"></i>Kereta</router-link>
             </li>
             <li>
-              <a><i class="fa fa-plane"></i>Penerbangan</a>
+              <router-link to="/penerbangan"><i class="fa fa-plane"></i>Penerbangan</router-link>
             </li>
           </ul>
         </aside>

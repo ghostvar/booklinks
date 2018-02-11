@@ -50,7 +50,7 @@
         <button class="button is-success" @click="modal = true">Tambah</button>
       </span>
       <span v-if="used.id">
-        <button class="button is-primary" @click="initStasiun">Batal</button>
+        <button class="button is-text is-light" @click="initStasiun">Batal</button>
         <button class="button is-success" @click="modal = true">Ubah</button>
         <button class="button is-danger" @click="deleteStasiun">Hapus</button>
       </span>

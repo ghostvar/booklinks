@@ -79,7 +79,7 @@
           <button @click="modal = !modal" class="button is-success">Tambah</button>
         </span>
         <span v-if="used.id">
-          <button class="button is-primary" @click="initPelanggan">Batal</button>
+          <button class="button is-text is-light" @click="initPelanggan">Batal</button>
           <button class="button is-success" @click="modal = !modal">Ubah</button>
           <button class="button is-danger" @click="deletePelanggan">Hapus</button>
         </span>

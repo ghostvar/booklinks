@@ -19,6 +19,10 @@ export default new Router({
             component: require('./components/Pemesanan')
         },
         {
+            path: '/pelanggan',
+            component: require('./components/Pelanggan')
+        },
+        {
             path: '/kereta',
             component: require('./components/Kereta'),
             children: [
@@ -38,12 +42,23 @@ export default new Router({
             ]
         },
         {
-            path: '/pelanggan',
-            component: load('Pelanggan')
-        },
-        {
             path: '/penerbangan',
-            component: load('Penerbangan')
+            component: require('./components/Penerbangan'),
+            children: [
+                { path: '', redirect: 'jadwal' },
+                {
+                    path: 'jadwal',
+                    component: require('./views/penerbangan/Jadwal')
+                },
+                {
+                    path: 'pesawat',
+                    component: require('./views/penerbangan/Pesawat')
+                },
+                {
+                    path: 'bandara',
+                    component: require('./views/penerbangan/Bandara')
+                }
+            ]
         },
         // Redirection
         { path: '*', redirect: '/dashboard' },

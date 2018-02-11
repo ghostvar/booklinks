@@ -12,7 +12,10 @@ export default new Vuex.Store({
         pelanggan: [],
         stasiun: [],
         kereta: [],
-        jadwalKereta: []
+        jadwalKereta: [],
+        bandara: [],
+        pesawat: [],
+        penerbangan: []
     },
     mutations: {
         setModal(state, data) {
@@ -35,6 +38,15 @@ export default new Vuex.Store({
         },
         setJadwalKereta(state, data) {
             state.jadwalKereta = data
+        },
+        setBandara(state, data) {
+            state.bandara = data
+        },
+        setPesawat(state, data) {
+            state.pesawat = data
+        },
+        setPenerbangan(state, data) {
+            state.penerbangan = data
         }
     },
     actions: {
