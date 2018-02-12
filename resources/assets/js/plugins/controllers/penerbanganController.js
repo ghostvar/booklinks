@@ -40,6 +40,20 @@ export default {
             name: bandara.name
         }
     },
+    actionBandara() {
+        Penerbangan.actionBandara(this.used, () => {
+            this.initBandara();
+            this.init();
+            this.modal = false;
+        })
+    },
+    deleteBandara() {
+        Penerbangan.deleteBandara(this.used.id, () => {
+            this.initBandara();
+            this.init();
+            this.modal = false;
+        })
+    },
 
     initPesawat() {
         this.used = {
