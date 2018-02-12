@@ -35,7 +35,7 @@ export default {
     selectBandara(bandara) {
         this.used = {
             id: bandara.id,
-            kode: bandara.id,
+            kode: bandara.kode,
             kota: bandara.kota,
             name: bandara.name
         }
