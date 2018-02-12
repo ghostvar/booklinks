@@ -23,7 +23,7 @@ export default {
     actionBandara(data, callback) {
         axios({
             method: (data.id ? 'put':'post'),
-            url: '/api/pesawat',
+            url: '/api/bandara',
             data
         })
         .then(res => {
