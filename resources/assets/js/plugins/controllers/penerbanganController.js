@@ -51,7 +51,6 @@ export default {
         Penerbangan.deleteBandara(this.used.id, () => {
             this.initBandara();
             this.init();
-            this.modal = false;
         })
     },
 
@@ -76,5 +75,18 @@ export default {
             busines_seat_num: pesawat.busines_seat_num,
             eco_seat_num: pesawat.eco_seat_num
         }
+    },
+    actionPesawat() {
+        Penerbangan.actionPesawat(this.used, () => {
+            this.init();
+            this.initPesawat();
+            this.modal = false;
+        })
+    },
+    deletePesawat() {
+        Penerbangan.deletePesawat(this.used.id, () => {
+            this.init();
+            this.initPesawat();
+        })
     }
 }
