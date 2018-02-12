@@ -48,6 +48,7 @@ class PenerbanganController extends Controller
         $pesawat->type_pesawat = $request->input('type_pesawat');
         $pesawat->exec_seat_num = $request->input('exec_seat_num');
         $pesawat->eco_seat_num = $request->input('eco_seat_num');
+        $pesawat->busines_seat_num = $request->input('busines_seat_num');
         $pesawat->save();
         return [ 'status' => 'success', 'messages' => 'all done!' ];
     }
@@ -59,6 +60,7 @@ class PenerbanganController extends Controller
         $pesawat->type_pesawat = $request->input('type_pesawat');
         $pesawat->exec_seat_num = $request->input('exec_seat_num');
         $pesawat->eco_seat_num = $request->input('eco_seat_num');
+        $pesawat->busines_seat_num = $request->input('busines_seat_num');
         $pesawat->save();
         return [ 'status' => 'success', 'messages' => 'all done!' ];
     }
