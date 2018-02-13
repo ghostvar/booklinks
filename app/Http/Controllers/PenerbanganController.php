@@ -81,11 +81,11 @@ class PenerbanganController extends Controller
     public function insertPenerbangan (Request $request) {
         $penerbangan = new Penerbangan;
         $penerbangan->no_penerbangan = $request->input('no_penerbangan');
-        $penerbangan->asal = $request->input('asal');
-        $penerbangan->tujuan = $request->input('tujuan');
-        $penerbangan->waktu_berangkat = $request('waktu_berangkat');
-        $penerbangan->waktu_sampai = $request('waktu_sampai');
-        $penerbangan->pesawat_id = $request('pesawat_id');
+        $penerbangan->asal = $request->input('asal')['kode'];
+        $penerbangan->tujuan = $request->input('tujuan')['kode'];
+        $penerbangan->waktu_berangkat = $request->input('waktu_berangkat');
+        $penerbangan->waktu_sampai = $request->input('waktu_sampai');
+        $penerbangan->pesawat_id = $request->input('pesawat')['id'];
         $penerbangan->save();
         return [ 'status' => 'success', 'messages' => 'all done!' ];
     }
@@ -93,11 +93,11 @@ class PenerbanganController extends Controller
     public function updatePenerbangan (Request $request) {
         $penerbangan = Penerbangan::find($request->input('id'));
         $penerbangan->no_penerbangan = $request->input('no_penerbangan');
-        $penerbangan->asal = $request->input('asal');
-        $penerbangan->tujuan = $request->input('tujuan');
-        $penerbangan->waktu_berangkat = $request('waktu_berangkat');
-        $penerbangan->waktu_sampai = $request('waktu_sampai');
-        $penerbangan->pesawat_id = $request('pesawat_id');
+        $penerbangan->asal = $request->input('asal')['kode'];
+        $penerbangan->tujuan = $request->input('tujuan')['kode'];
+        $penerbangan->waktu_berangkat = $request->input('waktu_berangkat');
+        $penerbangan->waktu_sampai = $request->input('waktu_sampai');
+        $penerbangan->pesawat_id = $request->input('pesawat')['id'];
         $penerbangan->save();
         return [ 'status' => 'success', 'messages' => 'all done!' ];
     }
