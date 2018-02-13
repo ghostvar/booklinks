@@ -5,11 +5,17 @@ export default {
         this.used = {
             id: '',
             no_penerbangan: '',
-            asal: '',
-            tujuan: '',
+            asal: {
+                kode: null
+            },
+            tujuan: {
+                kode: null
+            },
             waktu_berangkat: '',
             waktu_sampai: '',
-            pesawat: ''
+            pesawat: {
+                id: null
+            }
         }
     },
     selectJadwalPenerbangan(penerbangan) {
@@ -22,6 +28,16 @@ export default {
             waktu_sampai: penerbangan.waktu_sampai,
             pesawat: penerbangan.pesawat
         }
+    },
+    actionJadwalPenerbangan() {
+        Penerbangan.actionPenerbangan(this.used, () => {
+            this.init();
+            this.initJadwalPenerbangan();
+            this.modal = false;
+        })
+    },
+    deleteJadwalPenerbangan() {
+
     },
 
     initBandara() {
