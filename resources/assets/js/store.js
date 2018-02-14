@@ -49,7 +49,36 @@ export default new Vuex.Store({
             state.penerbangan = data
         }
     },
+    getters: {
+        pelanggan(state) {
+            return state.pelanggan
+        },
+        pemesanan(state) {
+            return state.pemesanan
+        },
+        pelanggan(state) {
+            return state.pelanggan
+        },
+        stasiun(state) {
+            return state.stasiun
+        },
+        kereta(state) {
+            return state.kereta
+        },
+        jadwalKereta(state) {
+            return state.jadwalKereta
+        },
+        bandara(state) {
+            return state.bandara
+        },
+        pesawat(state) {
+            return state.pesawat
+        },
+        penerbangan(state) {
+            return state.penerbangan
+        }
+    },
     actions: {
-        
+
     }
 })

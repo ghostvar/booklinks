@@ -47,7 +47,25 @@
     </div>
     <div class="control is-nested">
       <span v-if="!used.id">
-        <button class="button is-success" @click="modal = true">Tambah</button>
+        <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <button class="button is-success" @click="modal = true">Tambah</button>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <div class="field has-addons">
+                  <p class="control">
+                    <input v-model="search" class="input" type="text" placeholder="Cari pelanggan ...">
+                  </p>
+                  <p class="control">
+                    <button class="button"><i class="fa fa-search"></i></button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </nav>
       </span>
       <span v-if="used.id">
         <button class="button is-text is-light" @click="initBandara">Batal</button>
@@ -65,7 +83,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(bandara, id) in $store.state.bandara" :key="id" @click="selectBandara(bandara)" :class="{ 'is-selected': (used.id == bandara.id ? true:false) }">
+        <tr v-for="(bandara, id) in bandara" :key="id" @click="selectBandara(bandara)" :class="{ 'is-selected': (used.id == bandara.id ? true:false) }">
           <td v-text="id+1"></td>
           <td v-text="bandara.kode"></td>
           <td v-text="bandara.name"></td>
@@ -78,9 +96,36 @@
 
 
 <script>
+import { mapGetters } from 'vuex'
+import jpath from 'node-jpath'
 export default {
+  data() {
+    return {
+      search: '',
+      bandara: []
+    }
+  },
   mounted() {
     this.initBandara();
+    this.bandara = this.$store.state.bandara
+  },
+  watch: {
+    search() {
+      if (this.search) {
+        var query = this.search.replace(/[^\w\s]/gi, '');
+        this.bandara = jpath.filter({ data: this.bandaras }, "data[kota*='"+query+"' || name*='"+query+"' || kode*='"+query+"']");
+      } else {
+        this.bandara = this.bandaras
+      }
+    },
+    bandaras() {
+      this.bandara = this.bandaras
+    }
+  },
+  computed: {
+    ...mapGetters({
+      bandaras: 'bandara'
+    })
   }
 }
 </script>

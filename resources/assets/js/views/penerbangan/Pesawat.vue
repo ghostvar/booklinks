@@ -68,7 +68,25 @@
     </div>
     <div class="control is-nested">
       <span v-if="!used.id">
-        <button class="button is-success" @click="modal = true">Tambah</button>
+        <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <button class="button is-success" @click="modal = true">Tambah</button>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <div class="field has-addons">
+                  <p class="control">
+                    <input v-model="search" class="input" type="text" placeholder="Cari pelanggan ...">
+                  </p>
+                  <p class="control">
+                    <button class="button"><i class="fa fa-search"></i></button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </nav>
       </span>
       <span v-if="used.id">
         <button class="button is-text is-light" @click="initStasiun">Batal</button>
@@ -87,7 +105,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(pesawat, id) in $store.state.pesawat" :key="id" @click="selectPesawat(pesawat)" :class="{ 'is-selected': (used.id == pesawat.id ? true:false) }">
+        <tr v-for="(pesawat, id) in pesawat" :key="id" @click="selectPesawat(pesawat)" :class="{ 'is-selected': (used.id == pesawat.id ? true:false) }">
           <td v-text="id+1"></td>
           <td v-text="pesawat.kode"></td>
           <td v-text="pesawat.name"></td>
@@ -101,9 +119,36 @@
 
 
 <script>
+import { mapGetters } from 'vuex'
+import jpath from 'node-jpath'
 export default {
+  data() {
+    return {
+      search: '',
+      pesawat: []
+    }
+  },
   mounted() {
     this.initPesawat();
+    this.pesawat = this.$store.state.pesawat
+  },
+  watch: {
+    search() {
+      if (this.search) {
+        var query = this.search.replace(/[^\w\s]/gi, '');
+        this.pesawat = jpath.filter({ data: this.pesawats }, "data[kode*='"+query+"' || name*='"+query+"' || type_pesawat*='"+query+"']");
+      } else {
+        this.pesawat = this.pesawats
+      }
+    },
+    pesawats() {
+      this.pesawat = this.pesawats
+    }
+  },
+  computed: {
+    ...mapGetters({
+      pesawats: 'pesawat'
+    })
   }
 }
 </script>

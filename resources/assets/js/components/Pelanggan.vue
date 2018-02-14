@@ -76,7 +76,25 @@
     <section>
       <div class="control">
         <span v-if="!used.id">
-          <button @click="modal = !modal" class="button is-success">Tambah</button>
+          <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <button @click="modal = !modal" class="button is-success">Tambah</button>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <div class="field has-addons">
+                  <p class="control">
+                    <input v-model="search" class="input" type="text" placeholder="Cari pelanggan ...">
+                  </p>
+                  <p class="control">
+                    <button class="button"><i class="fa fa-search"></i></button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </nav>
         </span>
         <span v-if="used.id">
           <button class="button is-text is-light" @click="initPelanggan">Batal</button>
@@ -97,9 +115,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(user, id) in $store.state.pelanggan" :key="id" @click="selectPelanggan(user)" :class="{ 'is-selected': (used.id == user.id ? true:false) }">
+          <tr v-for="(user, id) in pelanggan" :key="id" @click="selectPelanggan(user)" :class="{ 'is-selected': (used.id == user.id ? true:false) }">
             <td v-text="id+1"></td>
-            <td v-text="user.name"></td>
+            <td v-html="user.name"></td>
             <td v-text="user.kota"></td>
             <td v-text="user.created_at"></td>
 						<td v-text="user.updated_at"></td>
@@ -111,9 +129,36 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import jpath from 'node-jpath'
 export default {
+  data() {
+    return {
+      search: '',
+      pelanggan: []
+    }
+  },
   mounted() {
     this.initPelanggan()
+    this.pelanggan = this.$store.state.pelanggan
+  },
+  watch: {
+    search() {
+      if (this.search) {
+        var query = this.search.replace(/[^\w\s]/gi, '');
+        this.pelanggan = jpath.filter({ data: this.pelanggans }, "data[kota*='"+query+"' || name*='"+query+"']");
+      } else {
+        this.pelanggan = this.pelanggans
+      }
+    },
+    pelanggans() {
+      this.pelanggan = this.pelanggans
+    }
+  },
+  computed: {
+    ...mapGetters({
+      pelanggans: 'pelanggan'
+    })
   }
 }
 </script>

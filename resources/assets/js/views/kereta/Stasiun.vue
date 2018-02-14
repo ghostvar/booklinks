@@ -47,7 +47,25 @@
     </div>
     <div class="control is-nested">
       <span v-if="!used.id">
-        <button class="button is-success" @click="modal = true">Tambah</button>
+        <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <button class="button is-success" @click="modal = true">Tambah</button>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <div class="field has-addons">
+                  <p class="control">
+                    <input v-model="search" class="input" type="text" placeholder="Cari Stasiun ...">
+                  </p>
+                  <p class="control">
+                    <button class="button"><i class="fa fa-search"></i></button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </nav>
       </span>
       <span v-if="used.id">
         <button class="button is-text is-light" @click="initStasiun">Batal</button>
@@ -65,11 +83,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(stasiun, id) in $store.state.stasiun" :key="id" @click="selectStasiun(stasiun)" :class="{ 'is-selected': (used.id == stasiun.id ? true:false) }">
+        <tr v-for="(field, id) in stasiun" :key="id" @click="selectStasiun(field)" :class="{ 'is-selected': (used.id == field.id ? true:false) }">
           <td v-text="id+1"></td>
-          <td v-text="stasiun.kode"></td>
-          <td v-text="stasiun.name"></td>
-          <td v-text="stasiun.kota"></td>
+          <td v-text="field.kode"></td>
+          <td v-text="field.name"></td>
+          <td v-text="field.kota"></td>
         </tr>
       </tbody>
     </table>
@@ -77,9 +95,36 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import jpath from 'node-jpath'
 export default {
+  data() {
+    return {
+      search: '',
+      stasiun: []
+    }
+  },
   mounted() {
     this.initStasiun();
+    this.stasiun = this.$store.state.stasiun;
+  },
+  watch: {
+    search() {
+      if (this.search) {
+        var query = this.search.replace(/[^\w\s]/gi, '');
+        this.stasiun = jpath.filter({ data: this.stasiuns }, "data[kode*='"+query+"' || name*='"+query+"' || kota*='"+query+"']");
+      } else {
+        this.stasiun = this.stasiuns
+      }
+    },
+    stasiuns() {
+      this.stasiun = this.stasiuns
+    }
+  },
+  computed: {
+    ...mapGetters({
+      stasiuns: 'stasiun'
+    })
   }
 }
 </script>

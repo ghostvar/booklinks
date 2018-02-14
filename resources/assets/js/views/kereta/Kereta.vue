@@ -2,7 +2,25 @@
   <div>
     <div class="control is-nested">
         <span>
-          <button @click="tambah = true; initKereta()" class="button is-success">Tambah</button>
+          <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <button @click="tambah = true; initKereta()" class="button is-success">Tambah</button>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <div class="field has-addons">
+                  <p class="control">
+                    <input v-model="search" class="input" type="text" placeholder="Cari Kereta ...">
+                  </p>
+                  <p class="control">
+                    <button class="button"><i class="fa fa-search"></i></button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </nav>
         </span>
     </div>
     <div class="columns">
@@ -17,11 +35,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(kereta, id) in $store.state.kereta" :key="id" @click="selectKereta(kereta); tambah = false" :class="{ 'is-selected': (used.id == kereta.id ? true:false) }">
+        <tr v-for="(field, id) in kereta" :key="id" @click="selectKereta(field); tambah = false" :class="{ 'is-selected': (used.id == field.id ? true:false) }">
           <td v-text="id+1"></td>
-          <td v-text="kereta.name"></td>
-          <td v-text="kereta.created_at"></td>
-	  			<td v-text="kereta.updated_at"></td>
+          <td v-text="field.name"></td>
+          <td v-text="field.created_at"></td>
+	  			<td v-text="field.updated_at"></td>
         </tr>
       </tbody>
     </table>
@@ -85,14 +103,37 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import jpath from 'node-jpath'
 export default {
-  mounted() {
-    this.initKereta();
-  },
   data() {
     return {
-      tambah: false
+      tambah: false,
+      search: '',
+      kereta: []
     }
+  },
+  mounted() {
+    this.initKereta();
+    this.kereta = this.$store.state.kereta
+  },
+  watch: {
+    search() {
+      if (this.search) {
+        var query = this.search.replace(/[^\w\s]/gi, '');
+        this.kereta = jpath.filter({ data: this.keretas }, "data[name*='"+query+"']");
+      } else {
+        this.kereta = this.keretas
+      }
+    },
+    keretas() {
+      this.kereta = this.keretas
+    }
+  },
+  computed: {
+    ...mapGetters({
+      keretas: 'kereta'
+    })
   }
 }
 </script>
