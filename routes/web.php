@@ -22,7 +22,7 @@ Route::get('/login', function () {
 // Table Export to Excel
 Route::get('/export/kereta/excel', 'ExcelController@exportKereta');
 Route::get('/export/stasiun/excel', 'ExcelController@exportStasiun');
-//Route::get('/export/jurusan/excel', 'ExcelController@exportJurusan');
+Route::get('/export/jurusan/excel', 'ExcelController@exportJurusan');
 Route::get('/export/bandara/excel', 'ExcelController@exportBandara');
 Route::get('/export/pesawat/excel', 'ExcelController@exportPesawat');
 Route::get('/export/penerbangan/excel', 'ExcelController@exportPenerbangan');
