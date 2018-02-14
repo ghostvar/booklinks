@@ -20,7 +20,7 @@
             <th>Stasiun Keberangkatan</th>
             <th>Waktu Kedatangan</th>
             <th>Stasiun Kedatangan</th>
-            <th>Waktu Tempuh</th>
+            <!--th>Waktu Tempuh</th-->
           </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
             <td v-text="jadwal.rute[0].stasiun_berangkat.name"></td>
             <td v-text="jadwal.rute[jadwal.rute.length-1].waktu_sampai"></td>
             <td v-text="jadwal.rute[jadwal.rute.length-1].stasiun_sampai.name"></td>
-            <td v-text="jadwal.waktu_tempuh + ' Jam'"></td>
+            <!--td v-text="jadwal.waktu_tempuh + ' Jam'"></td-->
           </tr>
         </tbody>
       </table>
