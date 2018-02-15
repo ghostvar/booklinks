@@ -1,24 +1,11 @@
 import axios from '../services/axios'
 
-function error (err) {
-    if (err.response.status == 401) {
-        sessionStorage.removeItem("token");
-        window.location = '/login'
-    } else {
-        //console.error(err)
-        if(err.response.data.message) {
-            alert(err.response.data.message)
-        }
-    }
-}
-
 export default {
     getTrains(callback) {
         axios.get('/api/kereta')
         .then(res =>  {
             callback(res.data)
         })
-        .catch(err => { error(err) })
     },
     actionTrain(data, callback) {
         axios({
@@ -29,14 +16,12 @@ export default {
         .then(() => {
             callback()
         })
-        .catch(err => { error(err) })
     },
     deleteTrain(id, callback) {
         axios.delete('/api/kereta/' + id)
         .then(res => {
             callback(res)
         })
-        .catch(err => { error(err) })
     },
 
     getStasiun(callback) {
@@ -44,7 +29,6 @@ export default {
         .then(res =>  {
             callback(res.data)
         })
-        .catch(err => { error(err) })
     },
     actionStasiun(data, callback) {
         axios({
@@ -55,14 +39,12 @@ export default {
         .then(() => {
             callback()
         })
-        .catch(err => { error(err) })
     },
     deleteStasiun(id, callback) {
         axios.delete('/api/stasiun/' + id)
         .then(res => {
             callback(res)
         })
-        .catch(err => { error(err) })
     },
 
     getJadwal(callback) {
@@ -70,7 +52,6 @@ export default {
         .then(res => {
             callback(res.data);
         })
-        .catch(err => { error(err) })
     },
     actionJadwal(data, callback) {
         axios({
@@ -81,13 +62,11 @@ export default {
         .then(() => {
             callback()
         })
-        .catch(err => { error(err) })
     },
     deleteJadwal(id, callback) {
         axios.delete('/api/jurusan/delete.' + id)
         .then(() => {
             callback();
         })
-        .catch(err => { error(err) })
     }
 }
