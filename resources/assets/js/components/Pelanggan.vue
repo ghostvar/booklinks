@@ -69,7 +69,10 @@
       </div>
       <div class="level-right">
       <div class="level-item">
-        <button type="button" class="button is-small" v-text="$store.state.date"></button>
+        <div class="control">
+          <button type="button" class="button is-small" v-text="$store.state.date"></button>
+          <button type="button" class="button is-small" @click="init" title="Singkronisasi"><i class="fa fa-refresh"></i></button>
+        </div>
       </div>
       </div>
     </div>
