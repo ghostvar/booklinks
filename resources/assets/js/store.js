@@ -7,6 +7,7 @@ export default new Vuex.Store({
     strict: true,
     state: {
         date: '',
+        dataTotal: {},
         modal: false,
         pemesanan: [],
         pelanggan: [],
@@ -18,6 +19,9 @@ export default new Vuex.Store({
         penerbangan: []
     },
     mutations: {
+        setDataTotal(state, data) {
+            state.dataTotal = data
+        },
         setModal(state, data) {
             state.modal = data
         },
