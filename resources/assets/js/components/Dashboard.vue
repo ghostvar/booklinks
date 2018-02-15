@@ -15,19 +15,19 @@
         <div class="columns is-multiline">
           <div class="column">
             <div class="box notification is-success">
-              <div class="heading">Total Santri</div>
-              <div class="title">6,950</div>
+              <div class="heading">Total Penerbangan</div>
+              <div class="title" v-text="$store.state.dataTotal.penerbangan">0</div>
               <div class="level">
                 <div class="level-item">
                   <div class="">
-                    <div class="heading">Putra</div>
-                    <div class="title is-5">46.75%</div>
+                    <div class="heading">Bandara</div>
+                    <div class="title is-5" v-text="$store.state.dataTotal.bandara">0</div>
                   </div>
                 </div>
                 <div class="level-item">
                   <div class="">
-                    <div class="heading">Putri</div>
-                    <div class="title is-5">64.25%</div>
+                    <div class="heading">Pesawat</div>
+                    <div class="title is-5" v-text="$store.state.dataTotal.pesawat">0</div>
                   </div>
                 </div>
               </div>
@@ -35,19 +35,19 @@
           </div>
           <div class="column">
             <div class="box notification is-warning">
-              <div class="heading">Total Pelajar</div>
-              <div class="title">3,520</div>
+              <div class="heading">Total Kereta</div>
+              <div class="title" v-text="$store.state.dataTotal.kereta">0</div>
               <div class="level">
                 <div class="level-item">
                   <div class="">
-                    <div class="heading">Siswa</div>
-                    <div class="title is-5">65%</div>
+                    <div class="heading">Rute</div>
+                    <div class="title is-5" v-text="$store.state.dataTotal.rute">0</div>
                   </div>
                 </div>
                 <div class="level-item">
                   <div class="">
-                    <div class="heading">Mahasiswa</div>
-                    <div class="title is-5">45%</div>
+                    <div class="heading">Stasiun</div>
+                    <div class="title is-5" v-text="$store.state.dataTotal.stasiun">0</div>
                   </div>
                 </div>
               </div>
@@ -55,19 +55,19 @@
           </div>
           <div class="column">
             <div class="box notification is-info">
-              <div class="heading">Total Pengurus</div>
-              <div class="title">78%</div>
+              <div class="heading">Total Pelanggan</div>
+              <div class="title" v-text="$store.state.dataTotal.pelanggan">0</div>
               <div class="level">
                 <div class="level-item">
                   <div class="">
-                    <div class="heading">Wali Asuh</div>
-                    <div class="title is-5">368</div>
+                    <div class="heading">Aktif</div>
+                    <div class="title is-5">N/A</div>
                   </div>
                 </div>
                 <div class="level-item">
                   <div class="">
-                    <div class="heading">Mahasiswa</div>
-                    <div class="title is-5">510</div>
+                    <div class="heading">Non Aktif</div>
+                    <div class="title is-5">N/A</div>
                   </div>
                 </div>
               </div>
@@ -75,9 +75,9 @@
           </div>
           <div class="column">
             <div class="box notification is-danger">
-              <div class="heading">Total Pegawai</div>
-              <div class="title">249</div>
-              <div class="level">
+              <div class="heading">Total Administrator</div>
+              <div class="title" v-text="$store.state.dataTotal.admin">0</div>
+              <!--div class="level">
                 <div class="level-item">
                   <div class="">
                     <div class="heading">Sekolah</div>
@@ -90,7 +90,7 @@
                     <div class="title is-5">+ 28,5%</div>
                   </div>
                 </div>
-              </div>
+              </div-->
             </div>
           </div>
         </div>

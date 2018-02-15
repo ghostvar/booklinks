@@ -26,6 +26,19 @@ Route::group(['middleware' => 'cors'], function () { // Handler Cors
             return [ 'status' => 'success', 'messages' => 'you are has login!' ];
         });
         
+        Route::get('/total', function () {
+            return [
+                'penerbangan' => App\Penerbangan::get()->count(),
+                'bandara' => App\Bandara::get()->count(),
+                'pesawat' => App\Pesawat::get()->count(),
+                'kereta' => App\Kereta::get()->count(),
+                'rute' => App\RuteKereta::get()->count(),
+                'stasiun' => App\Stasiun::get()->count(),
+                'pelanggan' => App\Pelanggan::get()->count(),
+                'admin' => App\User::get()->count()
+            ];
+        });
+
         // Costumer Routes
         Route::get('/pelanggan', 'CostumerController@getAllCostumers');
         Route::post('/pelanggan', 'CostumerController@insertCostumer');
