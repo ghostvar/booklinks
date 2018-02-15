@@ -31,6 +31,9 @@
             <li>
               <a @click="logout"><i class="fa fa-sign-out"></i>Keluar</a>
             </li>
+            <li>
+              <router-link to="/about"><i class="fa fa-info-circle"></i>Tentang</router-link>
+            </li>
           </ul>
         </aside>
       </div>

@@ -60,6 +60,10 @@ export default new Router({
                 }
             ]
         },
+        {
+            path: '/about',
+            component: require('./components/About')
+        },
         // Redirection
         { path: '*', redirect: '/dashboard' },
         { path: '/', redirect: '/dashboard' }
