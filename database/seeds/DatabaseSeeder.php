@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BandaraTableSeeder::class);
         $this->call(PenerbanganTableSeeder::class);
         $this->call(PesawatTableSeeder::class);
+        $this->call(TarifKeretaTableSeeder::class);
+        $this->call(TarifPenerbanganTableSeeder::class);
     }
 }
