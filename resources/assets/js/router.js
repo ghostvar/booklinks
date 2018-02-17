@@ -38,6 +38,10 @@ export default new Router({
                 {
                     path: 'stasiun',
                     component:  require('./views/kereta/Stasiun')
+                },
+                {
+                    path: 'tarif',
+                    component:  require('./views/kereta/Tarif')
                 }
             ]
         },

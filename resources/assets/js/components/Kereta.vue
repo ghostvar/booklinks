@@ -21,6 +21,7 @@
         <li><router-link to="/kereta/jadwal">Jadwal</router-link></li>
         <li><router-link to="/kereta/kereta">Kereta</router-link></li>
         <li><router-link to="/kereta/stasiun">Stasiun</router-link></li>
+        <li><router-link to="/kereta/tarif">Tarif</router-link></li>
       </ul>
       </div>
     </section>
