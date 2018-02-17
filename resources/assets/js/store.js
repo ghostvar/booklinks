@@ -13,6 +13,7 @@ export default new Vuex.Store({
         pelanggan: [],
         stasiun: [],
         kereta: [],
+        tarifKereta: [],
         jadwalKereta: [],
         bandara: [],
         pesawat: [],
@@ -39,6 +40,9 @@ export default new Vuex.Store({
         },
         setKereta(state, data) {
             state.kereta = data
+        },
+        setTarifKereta(state, data) {
+            state.tarifKereta = data
         },
         setJadwalKereta(state, data) {
             state.jadwalKereta = data
@@ -68,6 +72,9 @@ export default new Vuex.Store({
         },
         kereta(state) {
             return state.kereta
+        },
+        tarifKereta(state) {
+            return state.tarifKereta
         },
         jadwalKereta(state) {
             return state.jadwalKereta
