@@ -10,6 +10,7 @@ api.interceptors.response.use(function (response) {
     if (response.headers.authorization) {
         sessionStorage.setItem = response.headers.authorization
         console.log('Token has Resfresh!')
+        location.reload()
     }
     return response;
 }, function (err) {
