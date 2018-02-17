@@ -50,7 +50,7 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button @click="actionPelanggan" class="button is-success">Simpan</button>
+              <button class="button is-success">Simpan</button>
             </div>
             <div class="control">
               <button type="button" @click="modal = !modal" class="button is-text">Cancel</button>
