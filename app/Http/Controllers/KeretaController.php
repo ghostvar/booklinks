@@ -8,6 +8,7 @@ use App\Stasiun;
 use App\JurusanKereta;
 use Illuminate\Routing\Controller;
 use App\RuteKereta;
+use App\TarifKereta;
 
 class KeretaController extends Controller
 {
@@ -118,5 +119,33 @@ class KeretaController extends Controller
         JurusanKereta::find($id)->delete();
         RuteKereta::where('jurusan_id', $id)->delete();
         return [ 'status' => 'success', 'messages' => 'all done!' ];
+    }
+
+    public function getAllTarif () {
+        $raw = TarifKereta::with([
+            'kereta.kereta:no_kereta,name',
+            'kereta.rute.stasiunBerangkat',
+            'kereta.rute.stasiunSampai',
+        ])->get();
+        
+        $n = 0;
+        $result = [];
+        foreach($raw as $piece) {
+            $clean = json_decode(json_encode($piece));
+            $result[$n] = [
+                'id' => $clean->id,
+                'kereta' => $clean->kereta->kereta,
+                'kelas' => $clean->kelas,
+                'tarif' => $clean->tarif,
+                'jurusan' => current($clean->kereta->rute)->stasiun_berangkat->kota . ' - '  . end($clean->kereta->rute)->stasiun_sampai->kota,
+            ];
+            $n++;
+        }
+        return $result;
+        // return JurusanKereta::with([
+        //     'kereta:no_kereta,name,eco_seat_num,busines_seat_num,exec_seat_num',
+        //     'rute.stasiunBerangkat:kode,kota,name',
+        //     'rute.stasiunSampai:kode,kota,name'
+        // ])->first()->jurusan;
     }
 }
