@@ -20,4 +20,10 @@ class JurusanKereta extends Model
     public function kereta () {
         return $this->hasOne('App\Kereta', 'no_kereta', 'kereta_no');
     }
+
+    public function getJurusanAttribute () {
+        $first = json_decode(json_encode($this->rute[0]));
+        $end =  json_decode(json_encode($this->rute[count($this->rute)-1]));
+        return $first->stasiun_berangkat->kota . ' - ' . $end->stasiun_sampai->kota;
+    }
 }
