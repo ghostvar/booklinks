@@ -51,6 +51,9 @@ Route::group(['middleware' => 'cors'], function () { // Handler Cors
         Route::put('/kereta', 'KeretaController@updateTrain');
         Route::delete('/kereta/{id}', 'KeretaController@deleteTrain');
 
+        // Tarif Kereta Routes
+        Route::get('/kereta/tarif', 'KeretaController@getAllTarif');
+
         // Stasiun Routes
         Route::get('/stasiun', 'KeretaController@getStasiun');
         Route::post('/stasiun', 'KeretaController@insertStasiun');
@@ -80,5 +83,8 @@ Route::group(['middleware' => 'cors'], function () { // Handler Cors
         Route::post('/penerbangan', 'PenerbanganController@insertPenerbangan');
         Route::put('/penerbangan', 'PenerbanganController@updatePenerbangan');
         Route::delete('/penerbangan/{id}', 'PenerbanganController@deletePenerbangan');
+
+        // Pemesanan Route
+        Route::get('/pemesanan', 'CostumerController@getAllPemesanan');
     });
 });
