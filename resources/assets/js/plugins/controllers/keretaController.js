@@ -126,5 +126,24 @@ export default {
         Kereta.deleteJadwal(this.used.id, () => {
             this.init();
         })
+    },
+
+    initTarifKereta() {
+        this.used = {
+            id: '',
+            kereta: '',
+            kelas: '',
+            tarif: '',
+            jurusan: ''
+        }
+    },
+    selectTarifKereta(tarif) {
+        this.used = {
+            id: tarif.id,
+            kereta: tarif.kereta,
+            kelas: tarif.kelas,
+            tarif: tarif.tarif,
+            jurusan: tarif.jurusan
+        }
     }
 }
