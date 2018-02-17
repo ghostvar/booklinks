@@ -68,5 +68,12 @@ export default {
         .then(() => {
             callback();
         })
+    },
+
+    getTarifKereta(callback) {
+        axios.get('/api/kereta/tarif')
+        .then(res => {
+            callback(res.data)
+        })
     }
 }
