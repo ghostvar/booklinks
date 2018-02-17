@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Pelanggan;
+use App\Booking;
 
 class CostumerController extends Controller
 {
@@ -35,5 +36,11 @@ class CostumerController extends Controller
     public function deleteCostumer ($id) {
         Pelanggan::find($id)->delete();
         return [ 'status' => 'success', 'messages' => 'all done!' ];
+    }
+
+    public function getAllPemesanan () {
+        return Booking::with([
+            'pelanggan'
+        ])->get();
     }
 }
