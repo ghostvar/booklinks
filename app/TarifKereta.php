@@ -15,6 +15,6 @@ class TarifKereta extends Model
     ];
 
     public function kereta () {
-        return $this->hasOne('App\Kereta', 'id', 'kereta');
+        return $this->hasOne('App\JurusanKereta', 'id', 'kereta');
     }
 }
