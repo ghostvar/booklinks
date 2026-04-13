@@ -16,7 +16,7 @@
         "dateformat": "^3.0.3",
         "font-awesome": "^4.7.0",
         "laravel-mix": "^1.7.2",
-        "lodash": "^4.17.23",
+        "lodash": "^4.18.1",
         "vue": "^2.5.13",
         "vue-router": "^3.0.1",
         "node-jpath": "^2.1.0",
